@@ -298,6 +298,107 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Contact Form Validation & Toast Handler
+  const contactForm = document.getElementById("contactForm");
+  const toast = document.getElementById("toastNotification");
+  const toastTitle = document.getElementById("toastTitle");
+  const toastMessage = document.getElementById("toastMessage");
+  const toastIcon = document.getElementById("toastIcon");
+
+  function showToast(title, message, isSuccess = true) {
+    if (!toast) return;
+    if (toastTitle) toastTitle.textContent = title;
+    if (toastMessage) toastMessage.textContent = message;
+    if (toastIcon) {
+      toastIcon.innerHTML = isSuccess ? '<i class="fas fa-check"></i>' : '<i class="fas fa-exclamation-triangle"></i>';
+    }
+
+    toast.classList.remove("opacity-0", "pointer-events-none", "translate-y-4");
+    toast.classList.add("opacity-100", "pointer-events-auto", "translate-y-0");
+
+    setTimeout(() => {
+      toast.classList.add("opacity-0", "pointer-events-none", "translate-y-4");
+      toast.classList.remove("opacity-100", "pointer-events-auto", "translate-y-0");
+    }, 4000);
+  }
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nameInput = document.getElementById("contactName");
+      const emailInput = document.getElementById("contactEmail");
+      const messageInput = document.getElementById("contactMessage");
+
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+      const messageError = document.getElementById("messageError");
+
+      let isValid = true;
+
+      if (!nameInput || !nameInput.value.trim()) {
+        if (nameError) nameError.classList.remove("hidden");
+        isValid = false;
+      } else {
+        if (nameError) nameError.classList.add("hidden");
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput || !emailRegex.test(emailInput.value.trim())) {
+        if (emailError) emailError.classList.remove("hidden");
+        isValid = false;
+      } else {
+        if (emailError) emailError.classList.add("hidden");
+      }
+
+      if (!messageInput || !messageInput.value.trim()) {
+        if (messageError) messageError.classList.remove("hidden");
+        isValid = false;
+      } else {
+        if (messageError) messageError.classList.add("hidden");
+      }
+
+      if (isValid) {
+        const submitBtn = document.getElementById("submitContactBtn");
+        const originalBtnHtml = submitBtn ? submitBtn.innerHTML : "";
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin text-xs"></i> <span>Sending...</span>';
+        }
+
+        fetch("https://formsubmit.co/ajax/ariefakbar2006@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            message: messageInput.value.trim(),
+            _subject: `New Portfolio Contact Message from ${nameInput.value.trim()}`
+          })
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            showToast("Email Sent!", "Your message has been sent directly to ariefakbar2006@gmail.com!");
+            contactForm.reset();
+          })
+          .catch((err) => {
+            showToast("Error Sending Email", "Unable to send message via form. Please try emailing directly.", false);
+          })
+          .finally(() => {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalBtnHtml;
+            }
+          });
+      } else {
+        showToast("Validation Error", "Please fill in all required fields correctly.", false);
+      }
+    });
+  }
+
   // Dynamic current year in footer
   const currentYearSpan = document.getElementById("currentYear");
   if (currentYearSpan) {
