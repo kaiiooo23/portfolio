@@ -6,39 +6,53 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#25ab75',
-          dark: '#208c61'
+          DEFAULT: '#000000',
+          dark: '#171717',
+          light: '#ffffff'
         },
-        bgPrimary: '#1a1a1a',
-        bgSecondary: '#242424',
-        bgFooter: '#151515',
-        textColor: '#676767',
-        borderColor: '#373737'
+        dark: {
+          DEFAULT: '#0a0a0a',
+          card: '#121212',
+          border: '#262626'
+        },
+        light: {
+          DEFAULT: '#fafafa',
+          card: '#ffffff',
+          border: '#e5e5e5'
+        }
       },
       fontFamily: {
-        sans: ['Space Grotesk', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
         poppins: ['Poppins', 'system-ui', '-apple-system', 'sans-serif']
       },
-      fontSize: {
-        'sm': '1.4rem',
-        'base': '1.6rem',
-        'lg': '2rem',
-        'xl': '2.4rem',
-        '2xl': '3.2rem',
-        'biggest': 'clamp(3rem, 8vw, 5rem)'
+      animation: {
+        'fade-in-up': 'fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'fade-in': 'fadeIn 0.4s ease-out forwards',
+        'scale-up': 'scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'float': 'float 4s ease-in-out infinite'
       },
-      spacing: {
-        'header': '10rem',
-        'header-scroll': '8rem'
-      },
-      maxWidth: {
-        'container': '98rem'
-      },
-      transitionTimingFunction: {
-        'custom': 'cubic-bezier(0.645, 0.045, 0.355, 1)'
+      keyframes: {
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(24px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        scaleUp: {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' }
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' }
+        }
       },
       boxShadow: {
-        'custom': '0px 4px 10px rgba(0, 0, 0, 0.1)'
+        'glow-white': '0 0 25px -5px rgba(255, 255, 255, 0.15)',
+        'glow-black': '0 0 25px -5px rgba(0, 0, 0, 0.15)',
+        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.36)'
       }
     }
   },

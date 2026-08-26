@@ -1,130 +1,226 @@
-const navMenu = document.getElementById("nav-menu"),
-navToggle = document.getElementById("nav-toggle"),
-navItem = document.querySelectorAll(".nav__item"),
-header = document.getElementById("header");
+// Personal Portfolio Script - Modern Black & White Theme & Project Modal
 
-// open and close menu
-navToggle.addEventListener("click", () => {
-navMenu.classList.toggle("nav__menu--open");
-changeIcon();
-});
-
-const scrollToHireMe = () => {
-  const hireMeSection = document.getElementById("hireMe");
-  hireMeSection.scrollIntoView({ behavior: "smooth" });
+// Project Details Data Dictionary for Interactive Pop-up Modal
+const projectsData = {
+  maison: {
+    title: "Maison Velouré Boutique",
+    subtitle: "Modern Luxury E-Commerce Platform",
+    image: "assets/img/projek1.png",
+    category: "Web Application",
+    description: "Maison Velouré is a full-featured e-commerce fashion boutique platform designed to deliver an elevated, luxurious shopping experience. Built with performance and mobile responsiveness at its core, the platform allows users to browse catalog collections, filter products dynamically, manage interactive shopping cart items, and simulate seamless checkout workflows.",
+    features: [
+      "Dynamic catalog filtering and real-time live product search",
+      "Interactive cart state management with persistent local storage",
+      "Sleek product gallery view with zoom and responsive grid layout",
+      "Custom responsive payment checkout UI workflow"
+    ],
+    tech: ["React", "Tailwind CSS", "JavaScript", "HTML5", "CSS3"],
+    demoUrl: "https://ulzzang23.github.io/maisonveloure/",
+    githubUrl: "https://github.com/ulzzang23/maisonveloure"
+  },
+  techcare: {
+    title: "Tech Care Platform",
+    subtitle: "Real-Time PC & Laptop Repair Service System",
+    image: "https://bordio.com/wp-content/themes/understrap/images/task-management-board/task-management-board-calendar-l-1x.webp",
+    category: "Web Application",
+    description: "Tech Care is a comprehensive web service portal designed for computer hardware repair shops. It bridges the communication gap between certified repair technicians and customers through real-time repair tracking, live chat consultation via WebSockets, service scheduling, and transparent invoice estimates.",
+    features: [
+      "Real-time ticket tracking system with live status updates",
+      "Interactive technician-customer chat powered by Socket.io",
+      "Service scheduling calendar & hardware diagnostic estimator",
+      "Vuex centralized state management for seamless user session flows"
+    ],
+    tech: ["Vue.js", "Vuex", "Socket.io", "Node.js", "Tailwind CSS"],
+    demoUrl: "#",
+    githubUrl: "#"
+  },
+  weather: {
+    title: "Weather Dashboard",
+    subtitle: "Interactive Climate Analytics & Forecast Hub",
+    image: "assets/img/projek3.png",
+    category: "Web Application",
+    description: "An intuitive real-time weather analytics application featuring accurate global forecasts, interactive temperature charts, detailed atmospheric metrics (humidity, wind speed, UV index, air quality), and location search with automated geolocation lookup.",
+    features: [
+      "7-day extended weather forecast with daily condition breakdowns",
+      "Interactive meteorological data charts and temperature trends",
+      "Automatic geolocation detection & worldwide city search",
+      "Asynchronous REST API integration with real-time error handling"
+    ],
+    tech: ["JavaScript", "Vue.js", "REST API", "Chart.js", "Tailwind CSS"],
+    demoUrl: "https://ulzzang23.github.io/weatherdashboard/",
+    githubUrl: "https://github.com/ulzzang23/weatherdashboard"
+  }
 };
 
-// close the menu when the user clicks the nav links
-navItem.forEach((item) => {
-item.addEventListener("click", () => {
-  if (navMenu.classList.contains("nav__menu--open")) {
-    navMenu.classList.remove("nav__menu--open");
+document.addEventListener("DOMContentLoaded", function () {
+  // Theme (Dark/Light) Management
+  const html = document.documentElement;
+  const darkModeToggle = document.getElementById("darkModeToggle");
+
+  const savedTheme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (savedTheme) {
+    html.classList.toggle("dark", savedTheme === "dark");
+  } else {
+    html.classList.toggle("dark", prefersDark);
   }
-  changeIcon();
-});
-});
 
-// Change nav toggle icon
-function changeIcon() {
-if (navMenu.classList.contains("nav__menu--open")) {
-  navToggle.classList.replace("ri-menu-3-line", "ri-close-line");
-} else {
-  navToggle.classList.replace("ri-close-line", "ri-menu-3-line");
-}
-}
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener("click", () => {
+      const isDark = html.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
 
-// Downloading Resume
-// document.getElementsByClassName("btn btn--primary").addEventListener("click", function() {
-//   window.location.href = "../../assets/Calvin Mwangi.pdf"
-// })
+  // Mobile Menu Toggle
+  const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
 
+  if (mobileMenuToggle && mobileMenu) {
+    mobileMenuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
 
-// Project Slider
-const projectSlider = new Swiper(".project__container", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    grabCursor: true,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    breakpoints: {
-        768: {
-            slidesPerView: 2,
-        },
-        1024: {
-            slidesPerView: 3,
-        },
-    },
-});
+    document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  }
 
-// Testimonial Slide
-const testimonialSlide = new Swiper(".testimonial__wrapper", {
-    loop: true,
-    spaceBetween: 30,
-    centeredSlides: true,
-    effect: "coverflow",
-    grabCursor: true,
-    slidesPerView: 1,
-    coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    breakpoints: {
-        520: {
-            slidesPerView: "auto",
-        },
-    },
-});
+  // Smooth Scroll offset for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
+      const targetElement = document.querySelector(targetId);
 
-// header scroll animation
-window.addEventListener("scroll", () => {
-if (window.scrollY > 40) {
-  header.classList.add("header--scroll");
-} else {
-  header.classList.remove("header--scroll");
-}
-});
+      if (targetElement) {
+        e.preventDefault();
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-// ScrollReveal animations
-const sr = ScrollReveal({
-duration: 2000,
-distance: "100px",
-delay: 400,
-reset: false,
-});
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    });
+  });
 
-sr.reveal(".hero__content, .about__content");
-sr.reveal(".hero__img", { origin: "top" });
+  // Project Modal Logic
+  const modal = document.getElementById("projectModal");
+  const modalBackdrop = document.getElementById("modalBackdrop");
+  const modalContainer = document.getElementById("modalContainer");
+  const closeModalBtn = document.getElementById("closeModalBtn");
 
-sr.reveal(
-".hero__info-wrapper, .skills__title, .skills__content, .qualification__name, .qualification__item, .service__card, .project__content, .testimonial__wrapper, .footer__content",
-{
-  delay: 500,
-  interval: 100,
-}
-);
+  const modalTitle = document.getElementById("modalTitle");
+  const modalSubtitle = document.getElementById("modalSubtitle");
+  const modalImage = document.getElementById("modalImage");
+  const modalCategory = document.getElementById("modalCategory");
+  const modalDescription = document.getElementById("modalDescription");
+  const modalFeatures = document.getElementById("modalFeatures");
+  const modalTech = document.getElementById("modalTech");
+  const modalDemoBtn = document.getElementById("modalDemoBtn");
+  const modalGithubBtn = document.getElementById("modalGithubBtn");
 
-sr.reveal(".qualification__footer-text, .contact__content", {
-origin: "left",
-});
+  function openProjectModal(projectId) {
+    const data = projectsData[projectId];
+    if (!data || !modal) return;
 
-sr.reveal(".qualification__footer .btn, .contact__btn", { origin: "right" });
+    if (modalTitle) modalTitle.textContent = data.title;
+    if (modalSubtitle) modalSubtitle.textContent = data.subtitle;
+    if (modalImage) {
+      modalImage.src = data.image;
+      modalImage.alt = data.title;
+    }
+    if (modalCategory) modalCategory.textContent = data.category;
+    if (modalDescription) modalDescription.textContent = data.description;
 
-document.addEventListener('DOMContentLoaded', () => {
-const yearSpan = document.querySelector('.footer__copyright');
-const currentYear = new Date().getFullYear();
-yearSpan.innerHTML = yearSpan.innerHTML.replace('{currentYear}', currentYear);
+    // Populate Features
+    if (modalFeatures) {
+      modalFeatures.innerHTML = data.features
+        .map(
+          (feat) =>
+            `<li class="flex items-start text-sm text-gray-700 dark:text-gray-300"><i class="fas fa-check-circle text-black dark:text-white mr-2.5 mt-0.5 text-xs"></i><span>${feat}</span></li>`
+        )
+        .join("");
+    }
+
+    // Populate Tech Stack Pills
+    if (modalTech) {
+      modalTech.innerHTML = data.tech
+        .map(
+          (t) =>
+            `<span class="px-3 py-1 text-xs font-semibold rounded-full bg-black/5 dark:bg-white/10 text-black dark:text-white border border-black/10 dark:border-white/10">${t}</span>`
+        )
+        .join("");
+    }
+
+    // Links
+    if (modalDemoBtn) {
+      modalDemoBtn.href = data.demoUrl;
+      modalDemoBtn.style.display = data.demoUrl && data.demoUrl !== "#" ? "inline-flex" : "none";
+    }
+    if (modalGithubBtn) {
+      modalGithubBtn.href = data.githubUrl;
+      modalGithubBtn.style.display = data.githubUrl && data.githubUrl !== "#" ? "inline-flex" : "none";
+    }
+
+    // Display modal with smooth animations
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+
+    requestAnimationFrame(() => {
+      if (modalBackdrop) modalBackdrop.classList.remove("opacity-0");
+      if (modalContainer) {
+        modalContainer.classList.remove("opacity-0", "scale-95", "translate-y-4");
+        modalContainer.classList.add("opacity-100", "scale-100", "translate-y-0");
+      }
+    });
+  }
+
+  function closeProjectModal() {
+    if (!modal) return;
+
+    if (modalBackdrop) modalBackdrop.classList.add("opacity-0");
+    if (modalContainer) {
+      modalContainer.classList.remove("opacity-100", "scale-100", "translate-y-0");
+      modalContainer.classList.add("opacity-0", "scale-95", "translate-y-4");
+    }
+
+    setTimeout(() => {
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }, 300);
+  }
+
+  // Attach click handlers to cards / detail buttons
+  document.querySelectorAll("[data-project-id]").forEach((trigger) => {
+    trigger.addEventListener("click", function (e) {
+      // Prevent opening modal if user clicked directly on Live Demo or Source link buttons inside card
+      if (e.target.closest("a") && !e.target.closest(".modal-trigger")) return;
+      e.preventDefault();
+      const projectId = this.getAttribute("data-project-id");
+      openProjectModal(projectId);
+    });
+  });
+
+  if (closeModalBtn) closeModalBtn.addEventListener("click", closeProjectModal);
+  if (modalBackdrop) modalBackdrop.addEventListener("click", closeProjectModal);
+
+  // Close on Escape key press
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+      closeProjectModal();
+    }
+  });
+
+  // Dynamic current year in footer
+  const currentYearSpan = document.getElementById("currentYear");
+  if (currentYearSpan) {
+    currentYearSpan.textContent = new Date().getFullYear();
+  }
 });
