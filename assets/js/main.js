@@ -5,7 +5,7 @@ const projectsData = {
   maison: {
     title: "Maison Velouré Boutique",
     subtitle: "Modern Luxury E-Commerce Platform",
-    image: "../assets/img/projek1.png",
+    image: "assets/img/projek1.png",
     category: "Web Application",
     description: "Maison Velouré is a full-featured e-commerce fashion boutique platform designed to deliver an elevated, luxurious shopping experience. Built with performance and mobile responsiveness at its core, the platform allows users to browse catalog collections, filter products dynamically, manage interactive shopping cart items, and simulate seamless checkout workflows.",
     features: [
@@ -21,7 +21,7 @@ const projectsData = {
   techcare: {
     title: "Tech Care Platform",
     subtitle: "Real-Time PC & Laptop Repair Service System",
-    image: "../assets/img/projek4.png",
+    image: "assets/img/projek4.png",
     category: "Web Application",
     description: "Tech Care is a comprehensive web service portal designed for computer hardware repair shops. It bridges the communication gap between certified repair technicians and customers through real-time repair tracking, live chat consultation via WebSockets, service scheduling, and transparent invoice estimates.",
     features: [
@@ -37,7 +37,7 @@ const projectsData = {
   weather: {
     title: "Weather Dashboard",
     subtitle: "Interactive Climate Analytics & Forecast Hub",
-    image: "../assets/img/projek3.png",
+    image: "assets/img/projek3.png",
     category: "Web Application",
     description: "An intuitive real-time weather analytics application featuring accurate global forecasts, interactive temperature charts, detailed atmospheric metrics (humidity, wind speed, UV index, air quality), and location search with automated geolocation lookup.",
     features: [
