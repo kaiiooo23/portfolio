@@ -4,8 +4,7 @@
   "description": "My Personal Portfolio",
   "scripts": {
     "dev": "postcss src/input.css -o dist/output.css --watch",
-    "build": "npx postcss styles.css -o public/output.css"
-
+    "build": "postcss src/input.css -o dist/output.css && postcss src/input.css -o public/output.css"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",

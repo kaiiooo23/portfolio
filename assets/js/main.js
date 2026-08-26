@@ -21,7 +21,7 @@ const projectsData = {
   techcare: {
     title: "Tech Care Platform",
     subtitle: "Real-Time PC & Laptop Repair Service System",
-    image: "https://bordio.com/wp-content/themes/understrap/images/task-management-board/task-management-board-calendar-l-1x.webp",
+    image: "assets/img/projek4.png",
     category: "Web Application",
     description: "Tech Care is a comprehensive web service portal designed for computer hardware repair shops. It bridges the communication gap between certified repair technicians and customers through real-time repair tracking, live chat consultation via WebSockets, service scheduling, and transparent invoice estimates.",
     features: [
@@ -31,7 +31,7 @@ const projectsData = {
       "Vuex centralized state management for seamless user session flows"
     ],
     tech: ["Vue.js", "Vuex", "Socket.io", "Node.js", "Tailwind CSS"],
-    demoUrl: "#",
+    demoUrl: "https://techcare-re80gdxk8-ulzzang23s-projects.vercel.app/",
     githubUrl: "#"
   },
   weather: {
