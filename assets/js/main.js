@@ -5,7 +5,7 @@ const projectsData = {
   maison: {
     title: "Maison Velouré Boutique",
     subtitle: "Modern Luxury E-Commerce Platform",
-    image: "assets/img/projek1.png",
+    image: "../assets/img/projek1.png",
     category: "Web Application",
     description: "Maison Velouré is a full-featured e-commerce fashion boutique platform designed to deliver an elevated, luxurious shopping experience. Built with performance and mobile responsiveness at its core, the platform allows users to browse catalog collections, filter products dynamically, manage interactive shopping cart items, and simulate seamless checkout workflows.",
     features: [
@@ -21,7 +21,7 @@ const projectsData = {
   techcare: {
     title: "Tech Care Platform",
     subtitle: "Real-Time PC & Laptop Repair Service System",
-    image: "assets/img/projek4.png",
+    image: "../assets/img/projek4.png",
     category: "Web Application",
     description: "Tech Care is a comprehensive web service portal designed for computer hardware repair shops. It bridges the communication gap between certified repair technicians and customers through real-time repair tracking, live chat consultation via WebSockets, service scheduling, and transparent invoice estimates.",
     features: [
@@ -37,7 +37,7 @@ const projectsData = {
   weather: {
     title: "Weather Dashboard",
     subtitle: "Interactive Climate Analytics & Forecast Hub",
-    image: "assets/img/projek3.png",
+    image: "../assets/img/projek3.png",
     category: "Web Application",
     description: "An intuitive real-time weather analytics application featuring accurate global forecasts, interactive temperature charts, detailed atmospheric metrics (humidity, wind speed, UV index, air quality), and location search with automated geolocation lookup.",
     features: [
@@ -217,6 +217,86 @@ document.addEventListener("DOMContentLoaded", function () {
       closeProjectModal();
     }
   });
+
+  // Dynamic Typing Animation for Hero Subtitle
+  const typingElement = document.getElementById("typingRole");
+  if (typingElement) {
+    const roles = [
+      "Informatics Engineering Student",
+      "Front End Developer",
+      "UI/UX & Web Performance Enthusiast"
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function typeEffect() {
+      const currentRole = roles[roleIndex];
+      if (isDeleting) {
+        typingElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+      } else {
+        typingElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 100;
+      }
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        typingSpeed = 2000; // Pause at end
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typingSpeed = 500; // Pause before next word
+      }
+
+      setTimeout(typeEffect, typingSpeed);
+    }
+
+    typeEffect();
+  }
+
+  // IntersectionObserver Scroll Reveal Animations
+  const revealElements = document.querySelectorAll(".reveal-on-scroll");
+  if ("IntersectionObserver" in window) {
+    const observerOptions = {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+  } else {
+    revealElements.forEach((el) => el.classList.add("revealed"));
+  }
+
+  // Back to Top Button
+  const backToTopBtn = document.getElementById("backToTopBtn");
+  if (backToTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.remove("opacity-0", "pointer-events-none", "translate-y-4");
+        backToTopBtn.classList.add("opacity-100", "pointer-events-auto", "translate-y-0");
+      } else {
+        backToTopBtn.classList.add("opacity-0", "pointer-events-none", "translate-y-4");
+        backToTopBtn.classList.remove("opacity-100", "pointer-events-auto", "translate-y-0");
+      }
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 
   // Dynamic current year in footer
   const currentYearSpan = document.getElementById("currentYear");

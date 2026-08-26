@@ -18,15 +18,15 @@
       property="og:description"
       content="Clean, modern, and interactive frontend developer portfolio."
     />
-    <meta property="og:image" content="assets/img/profile.png" />
+    <meta property="og:image" content="../assets/img/profile.png" />
 
     <title>Arief Mochammad Akbar | Informathics Engineering Student</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
 
     <!-- Tailwind CSS & Custom Compiled Stylesheet -->
@@ -257,7 +257,7 @@
           </div>
 
           <!-- Profile Avatar with Ring -->
-          <div class="relative inline-block mb-8">
+          <div class="relative inline-block mb-8 animate-float-slow">
             <div
               class="absolute -inset-1 rounded-full bg-gradient-to-r from-neutral-400 to-neutral-900 dark:from-neutral-700 dark:to-white blur-md opacity-30 group-hover:opacity-100 transition duration-1000"
             ></div>
@@ -276,9 +276,9 @@
           </h1>
 
           <p
-            class="text-xl sm:text-2xl font-semibold tracking-tight text-neutral-600 dark:text-neutral-300 mb-6"
+            class="text-xl sm:text-2xl font-semibold tracking-tight text-neutral-600 dark:text-neutral-300 mb-6 h-8 flex items-center justify-center"
           >
-            Informathics Engineering Student  
+            <span id="typingRole" class="typing-cursor">Informatics Engineering Student</span>
           </p>
 
           <p
@@ -298,7 +298,7 @@
             </a>
 
             <a
-              href="assets/img/resume.jpg"
+              href="../assets/img/resume.jpg"
               target="_blank"
               class="inline-flex items-center px-8 py-3.5 rounded-full font-semibold text-sm border border-neutral-300 dark:border-neutral-700 bg-transparent text-neutral-900 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-all duration-300 hover:-translate-y-0.5"
             >
@@ -338,7 +338,7 @@
       </section>
 
       <!-- About Section -->
-      <section id="about" class="py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
+      <section id="about" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
         <div class="max-w-6xl mx-auto px-6">
           <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
@@ -412,7 +412,7 @@
       </section>
 
       <!-- Education Section -->
-      <section id="education" class="py-28 border-t border-neutral-200 dark:border-neutral-900 bg-neutral-50/50 dark:bg-neutral-900/30">
+      <section id="education" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-neutral-50/50 dark:bg-neutral-900/30">
         <div class="max-w-4xl mx-auto px-6">
           <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
@@ -470,7 +470,7 @@
       </section>
 
       <!-- Skills Section -->
-      <section id="skills" class="py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
+      <section id="skills" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
         <div class="max-w-6xl mx-auto px-6">
           <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
@@ -537,7 +537,7 @@
       </section>
 
       <!-- Certificates Section -->
-      <section id="certificate" class="py-28 border-t border-neutral-200 dark:border-neutral-900 bg-neutral-50/50 dark:bg-neutral-900/30">
+      <section id="certificate" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-neutral-50/50 dark:bg-neutral-900/30">
         <div class="max-w-6xl mx-auto px-6">
           <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
@@ -555,7 +555,7 @@
             >
               <div class="overflow-hidden rounded-xl mb-6 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
                 <img
-                  src="assets/img/certif.jpg"
+                  src="../assets/img/certif.jpg"
                   alt="Dicoding Academy Certificate"
                   class="w-full h-52 object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
@@ -566,7 +566,7 @@
               </div>
               <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Front-End Web Development Specialization</p>
               <a
-                href="assets/Dicoding Academy Certificate.pdf"
+                href="../assets/Dicoding Academy Certificate.pdf"
                 target="_blank"
                 class="inline-flex items-center text-sm font-semibold text-black dark:text-white hover:underline"
               >
@@ -581,7 +581,7 @@
             >
               <div class="overflow-hidden rounded-xl mb-6 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
                 <img
-                  src="assets/img/certif2.jpg"
+                  src="../assets/img/certif2.jpg"
                   alt="DevCoach AI Agent Certificate"
                   class="w-full h-52 object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
@@ -592,7 +592,7 @@
               </div>
               <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">AI Development & Web Architecture</p>
               <a
-                href="assets/DevCoach AI Agent.pdf"
+                href="../assets/DevCoach AI Agent.pdf"
                 target="_blank"
                 class="inline-flex items-center text-sm font-semibold text-black dark:text-white hover:underline"
               >
@@ -605,7 +605,7 @@
       </section>
 
       <!-- Projects Section with Interactive Pop-Up Trigger -->
-      <section id="projects" class="py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
+      <section id="projects" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
         <div class="max-w-6xl mx-auto px-6">
           <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
@@ -627,7 +627,7 @@
             >
               <div class="relative overflow-hidden bg-neutral-100 dark:bg-neutral-800">
                 <img
-                  src="assets/img/projek1.png"
+                  src="../assets/img/projek1.png"
                   alt="Maison Velouré Boutique"
                   class="w-full h-52 object-cover transform transition-transform duration-500 group-hover:scale-105"
                 />
@@ -697,7 +697,7 @@
             >
               <div class="relative overflow-hidden bg-neutral-100 dark:bg-neutral-800">
                 <img
-                  src="assets/img/projek4.png"
+                  src="../assets/img/projek4.png"
                   alt="Tech Care Platform"
                   class="w-full h-52 object-cover transform transition-transform duration-500 group-hover:scale-105"
                 />
@@ -759,7 +759,7 @@
             >
               <div class="relative overflow-hidden bg-neutral-100 dark:bg-neutral-800">
                 <img
-                  src="assets/img/projek3.png"
+                  src="../assets/img/projek3.png"
                   alt="Weather Dashboard"
                   class="w-full h-52 object-cover transform transition-transform duration-500 group-hover:scale-105"
                 />
@@ -838,7 +838,7 @@
       </section>
 
       <!-- Music Section -->
-      <section id="music" class="py-28 border-t border-neutral-200 dark:border-neutral-900 bg-neutral-50/50 dark:bg-neutral-900/30">
+      <section id="music" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-neutral-50/50 dark:bg-neutral-900/30">
         <div class="max-w-6xl mx-auto px-6">
           <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
@@ -882,7 +882,7 @@
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
+      <section id="contact" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
         <div class="max-w-4xl mx-auto px-6">
           <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
@@ -930,6 +930,15 @@
         </p>
       </div>
     </footer>
+
+    <!-- Back to Top Floating Button -->
+    <button
+      id="backToTopBtn"
+      aria-label="Back to Top"
+      class="fixed bottom-8 right-8 z-40 p-3.5 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white/90 dark:bg-neutral-900/90 text-black dark:text-white shadow-2xl opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:scale-110"
+    >
+      <i class="fas fa-arrow-up text-sm"></i>
+    </button>
 
     <!-- INTERACTIVE PROJECT EXPLANATION POP-UP MODAL -->
     <div
@@ -1031,6 +1040,6 @@
     </div>
 
     <!-- Script File -->
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
   </body>
 </html>
