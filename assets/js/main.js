@@ -89,6 +89,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Experience & Education Tab Switcher
+  const tabEducationBtn = document.getElementById("tabEducationBtn");
+  const tabWorkBtn = document.getElementById("tabWorkBtn");
+  const panelEducation = document.getElementById("panelEducation");
+  const panelWork = document.getElementById("panelWork");
+
+  if (tabEducationBtn && tabWorkBtn && panelEducation && panelWork) {
+    tabEducationBtn.addEventListener("click", () => {
+      tabEducationBtn.classList.add("bg-neutral-900", "text-white", "dark:bg-white", "dark:text-black", "shadow-md");
+      tabEducationBtn.classList.remove("text-neutral-600", "dark:text-zinc-400");
+
+      tabWorkBtn.classList.remove("bg-neutral-900", "text-white", "dark:bg-white", "dark:text-black", "shadow-md");
+      tabWorkBtn.classList.add("text-neutral-600", "dark:text-zinc-400");
+
+      panelEducation.classList.remove("hidden");
+      panelWork.classList.add("hidden");
+    });
+
+    tabWorkBtn.addEventListener("click", () => {
+      tabWorkBtn.classList.add("bg-neutral-900", "text-white", "dark:bg-white", "dark:text-black", "shadow-md");
+      tabWorkBtn.classList.remove("text-neutral-600", "dark:text-zinc-400");
+
+      tabEducationBtn.classList.remove("bg-neutral-900", "text-white", "dark:bg-white", "dark:text-black", "shadow-md");
+      tabEducationBtn.classList.add("text-neutral-600", "dark:text-zinc-400");
+
+      panelWork.classList.remove("hidden");
+      panelEducation.classList.add("hidden");
+    });
+  }
+
   // Smooth Scroll offset for navigation links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
@@ -98,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (targetElement) {
         e.preventDefault();
-        const headerOffset = 80;
+        const headerOffset = 90;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -109,6 +139,35 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // Floating Dock Active Link Scroll Spy
+  const sections = document.querySelectorAll("section[id]");
+  const dockLinks = document.querySelectorAll(".nav-dock-link");
+
+  function updateActiveDock() {
+    const scrollPosition = window.pageYOffset + 160;
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute("id");
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        dockLinks.forEach((link) => {
+          if (link.getAttribute("href") === `#${sectionId}`) {
+            link.classList.add("bg-white", "text-black", "dark:bg-white/20", "dark:text-white", "shadow-sm");
+            link.classList.remove("text-neutral-600", "dark:text-zinc-400");
+          } else {
+            link.classList.remove("bg-white", "text-black", "dark:bg-white/20", "dark:text-white", "shadow-sm");
+            link.classList.add("text-neutral-600", "dark:text-zinc-400");
+          }
+        });
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveDock, { passive: true });
+  updateActiveDock();
 
   // Project Modal Logic
   const modal = document.getElementById("projectModal");

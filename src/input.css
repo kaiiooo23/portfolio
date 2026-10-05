@@ -22,8 +22,8 @@ body {
 }
 
 .dark body {
-  background-color: #0a0a0a;
-  color: #f8fafc;
+  background-color: #09090b;
+  color: #f4f4f5;
 }
 
 ::selection {
@@ -38,14 +38,14 @@ body {
 
 /* Glassmorphism Utilities */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .dark .glass-panel {
-  background: rgba(18, 18, 18, 0.75);
+  background: rgba(18, 18, 21, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -62,7 +62,7 @@ body {
 }
 
 .dark .card-hover:hover {
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 20px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px 0 rgba(255, 255, 255, 0.08);
 }
 
 /* Nav Link Animation */
@@ -96,7 +96,7 @@ body {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease-in-out;
 }
 
-/* Custom Black & White Scrollbar */
+/* Custom Titanium Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -106,7 +106,7 @@ body {
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #09090b;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -115,7 +115,7 @@ body {
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #27272a;
   border-radius: 9999px;
 }
 
@@ -124,7 +124,7 @@ body {
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
+  background: #71717a;
 }
 
 /* Animations & Keyframes */
@@ -147,8 +147,8 @@ body {
 }
 
 @keyframes pulseGlowDark {
-  0%, 100% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); }
-  50% { box-shadow: 0 0 35px rgba(255, 255, 255, 0.3); }
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.08); }
+  50% { box-shadow: 0 0 35px rgba(255, 255, 255, 0.2); }
 }
 
 /* Blinking Cursor for Typing Effect */
@@ -176,4 +176,50 @@ body {
 .reveal-on-scroll.revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ===== 3D Flip Card System ===== */
+.flip-card {
+  perspective: 1200px;
+  height: 380px;
+}
+
+@media (min-width: 640px) {
+  .flip-card {
+    height: 360px;
+  }
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+/* Flip on hover (desktop) */
+@media (hover: hover) {
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Flip on click/tap (mobile & toggle) */
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
 }

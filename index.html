@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Portfolio website of Arief Mochammad Akbar - Informatics Student featuring modern UI/UX design, clean code, and interactive web projects."
+      content="Portfolio website of Arief Mochammad Akbar - Informatics Engineering Student & Front-End Developer. Creating high-performance, clean, and intuitive digital experiences."
     />
     <meta
       name="keywords"
-      content="informatics student, web developer, portfolio, React, Vue.js, Tailwind CSS, JavaScript"
+      content="Arief Mochammad Akbar, Informatics Student, Frontend Developer, React Developer, Vue.js Developer, Web Designer, Portfolio"
     />
     <meta name="author" content="Arief Mochammad Akbar" />
-    <meta name="theme-color" content="#000000" />
-    <meta property="og:title" content="Arief Mochammad Akbar | Front End Developer Portfolio" />
+    <meta name="theme-color" content="#09090b" />
+    <meta property="og:title" content="Arief Mochammad Akbar | Front-End Developer & UI Engineer" />
     <meta
       property="og:description"
-      content="Clean, modern, and interactive frontend developer portfolio."
+      content="A passionate front-end developer crafting modern web applications that create an equilibrium between user needs and technical excellence."
     />
     <meta property="og:image" content="assets/img/profile.png" />
+    <meta property="og:type" content="website" />
 
-    <title>Arief Mochammad Akbar | Informatics Engineering Student</title>
+    <title>Arief Mochammad Akbar — Front-End Developer & UI Engineer</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.svg" />
@@ -29,9 +30,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
 
-    <!-- Tailwind CSS & Custom Compiled Stylesheet -->
+    <!-- Compiled Stylesheets -->
     <link rel="stylesheet" href="dist/output.css" />
     <link rel="stylesheet" href="public/output.css" />
+
+    <!-- Tailwind CSS CDN Fallback & Config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -39,9 +42,15 @@
         theme: {
           extend: {
             colors: {
-              primary: {
-                DEFAULT: "#000000",
-                dark: "#ffffff",
+              titanium: {
+                950: "#09090b",
+                900: "#121215",
+                800: "#18181b",
+                700: "#27272a",
+                600: "#3f3f46",
+                silver: "#e4e4e7",
+                border: "rgba(255, 255, 255, 0.1)",
+                glow: "rgba(255, 255, 255, 0.15)",
               },
             },
             fontFamily: {
@@ -50,12 +59,21 @@
             animation: {
               "fade-in-up": "fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
               "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              "float-slow": "floatSlow 5s ease-in-out infinite",
             },
             keyframes: {
               fadeInUp: {
                 "0%": { opacity: "0", transform: "translateY(24px)" },
                 "100%": { opacity: "1", transform: "translateY(0)" },
               },
+              floatSlow: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+            boxShadow: {
+              "glow-white": "0 0 30px rgba(255, 255, 255, 0.12)",
+              "glow-card": "0 0 35px rgba(255, 255, 255, 0.08)",
             },
           },
         },
@@ -77,11 +95,11 @@
     <style>
       html {
         scroll-behavior: smooth;
-        scroll-padding-top: 90px;
+        scroll-padding-top: 85px;
       }
       ::selection {
-        background: #000000;
-        color: #ffffff;
+        background: #ffffff;
+        color: #000000;
       }
       .dark ::selection {
         background: #ffffff;
@@ -92,730 +110,1004 @@
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #f1f5f9;
-      }
-      .dark ::-webkit-scrollbar-track {
-        background: #0a0a0a;
+        background: #09090b;
       }
       ::-webkit-scrollbar-thumb {
-        background: #94a3b8;
-        border-radius: 9999px;
-      }
-      .dark ::-webkit-scrollbar-thumb {
-        background: #334155;
+        background: #27272a;
         border-radius: 9999px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #000000;
-      }
-      .dark ::-webkit-scrollbar-thumb:hover {
-        background: #ffffff;
+        background: #71717a;
       }
     </style>
   </head>
   <body
-    class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 transition-colors duration-300 font-sans selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black antialiased"
+    class="bg-white dark:bg-[#09090b] text-neutral-900 dark:text-zinc-100 transition-colors duration-300 font-sans antialiased selection:bg-white selection:text-black overflow-x-hidden"
   >
-    <!-- Modern Fixed Header Navbar -->
+    <!-- Ultra-Modern Floating Island Capsule Navigation Dock -->
     <header
-      class="fixed top-0 w-full z-40 backdrop-blur-md bg-white/80 dark:bg-neutral-950/80 border-b border-neutral-200/80 dark:border-neutral-800/80 transition-all duration-300"
+      class="fixed top-3 sm:top-5 inset-x-0 mx-auto w-[94%] max-w-5xl z-50 transition-all duration-300"
     >
-      <div class="max-w-7xl mx-auto px-6 py-4">
-        <div class="flex justify-between items-center">
-          <a
-            href="#"
-            class="group text-xl font-bold tracking-tight text-black dark:text-white flex items-center gap-2 transition-opacity hover:opacity-80"
-          >
+      <nav
+        class="relative backdrop-blur-2xl bg-white/85 dark:bg-[#121215]/85 border border-neutral-300/80 dark:border-white/15 rounded-full px-3 sm:px-4 py-2 shadow-[0_12px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_45px_rgba(0,0,0,0.8),0_0_20px_rgba(255,255,255,0.05)] flex items-center justify-between transition-all duration-300"
+      >
+        <!-- Left: Micro-Avatar & Monogram Pill -->
+        <a
+          href="#home"
+          class="group flex items-center gap-2.5 pl-1 pr-3 py-1 rounded-full hover:bg-neutral-100 dark:hover:bg-white/10 transition-colors"
+        >
+          <div class="relative">
+            <img
+              src="assets/img/profile.png"
+              alt="Arief"
+              class="w-8 h-8 rounded-full object-cover border border-black/20 dark:border-white/30 group-hover:scale-105 transition-transform"
+            />
             <span
-              class="w-3 h-3 rounded-full bg-black dark:bg-white group-hover:scale-125 transition-transform duration-300"
+              class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white dark:border-[#121215]"
             ></span>
-            <span>Arief Mochammad Akbar</span>
-          </a>
-
-          <!-- Desktop Navigation -->
-          <nav class="hidden md:flex items-center space-x-8">
-            <a
-              href="#about"
-              class="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-200"
-              >About</a
-            >
-            <a
-              href="#education"
-              class="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-200"
-              >Education</a
-            >
-            <a
-              href="#skills"
-              class="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-200"
-              >Skills</a
-            >
-            <a
-              href="#certificate"
-              class="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-200"
-              >Certificates</a
-            >
-            <a
-              href="#projects"
-              class="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-200"
-              >Projects</a
-            >
-            <a
-              href="#music"
-              class="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-200"
-              >Music</a
-            >
-            <a
-              href="#contact"
-              class="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-200"
-              >Contact</a
-            >
-          </nav>
-
-          <div class="flex items-center space-x-3">
-            <!-- Dark Mode Toggle Button -->
-            <button
-              id="darkModeToggle"
-              aria-label="Toggle Dark Mode"
-              class="p-2.5 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300"
-            >
-              <i class="fas fa-moon dark:hidden text-sm"></i>
-              <i class="fas fa-sun hidden dark:inline text-sm text-amber-400"></i>
-            </button>
-
-            <!-- Mobile Menu Toggle Button -->
-            <button
-              id="mobileMenuToggle"
-              aria-label="Toggle Mobile Menu"
-              class="md:hidden p-2.5 rounded-lg text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
-            >
-              <i class="fas fa-bars text-lg"></i>
-            </button>
           </div>
-        </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs sm:text-sm font-bold tracking-tight text-neutral-900 dark:text-white"
+              >Arief</span
+            >
+            <span
+              class="text-[10px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded-md bg-neutral-200/80 dark:bg-white/10 text-neutral-700 dark:text-zinc-300"
+              >DEV</span
+            >
+          </div>
+        </a>
 
-        <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="hidden md:hidden mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-800 space-y-2">
+        <!-- Center: Segmented Floating Dock Navigation (Desktop & Tablet) -->
+        <div
+          class="hidden md:flex items-center gap-1 bg-neutral-100/80 dark:bg-white/5 p-1 rounded-full border border-neutral-200 dark:border-white/10"
+        >
+          <a
+            href="#home"
+            class="nav-dock-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-neutral-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-white/15 transition-all duration-200"
+            data-nav-target="home"
+            >Home</a
+          >
+          <a
+            href="#experience"
+            class="nav-dock-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-neutral-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-white/15 transition-all duration-200"
+            data-nav-target="experience"
+            >Experience</a
+          >
           <a
             href="#about"
-            class="mobile-nav-link block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg transition-colors"
+            class="nav-dock-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-neutral-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-white/15 transition-all duration-200"
+            data-nav-target="about"
             >About</a
           >
           <a
-            href="#education"
-            class="mobile-nav-link block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg transition-colors"
-            >Education</a
+            href="#projects"
+            class="nav-dock-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-neutral-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-white/15 transition-all duration-200"
+            data-nav-target="projects"
+            >Lab</a
           >
           <a
             href="#skills"
-            class="mobile-nav-link block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg transition-colors"
+            class="nav-dock-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-neutral-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-white/15 transition-all duration-200"
+            data-nav-target="skills"
             >Skills</a
           >
           <a
             href="#certificate"
-            class="mobile-nav-link block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg transition-colors"
+            class="nav-dock-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-neutral-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-white/15 transition-all duration-200"
+            data-nav-target="certificate"
             >Certificates</a
           >
-          <a
-            href="#projects"
-            class="mobile-nav-link block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg transition-colors"
-            >Projects</a
-          >
-          <a
-            href="#music"
-            class="mobile-nav-link block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg transition-colors"
-            >Music</a
-          >
+        </div>
+
+        <!-- Right: Action Controls (Let's Talk CTA & Dark Mode & Mobile Menu) -->
+        <div class="flex items-center gap-2">
+          <!-- Let's Talk CTA Pill (Desktop) -->
           <a
             href="#contact"
-            class="mobile-nav-link block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg transition-colors"
-            >Contact</a
+            class="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black text-xs font-bold hover:bg-neutral-800 dark:hover:bg-zinc-200 transition-all shadow-sm"
           >
+            <span>Let's Talk</span>
+            <i class="fas fa-arrow-right text-[10px]"></i>
+          </a>
+
+          <!-- Dark Mode Toggle Button -->
+          <button
+            id="darkModeToggle"
+            aria-label="Toggle Dark Mode"
+            class="w-9 h-9 rounded-full border border-neutral-300 dark:border-white/15 bg-neutral-100 dark:bg-white/5 text-neutral-700 dark:text-zinc-300 hover:bg-neutral-200 dark:hover:bg-white/15 flex items-center justify-center transition-all hover:scale-105"
+          >
+            <i class="fas fa-moon dark:hidden text-xs"></i>
+            <i class="fas fa-sun hidden dark:inline text-xs text-zinc-100"></i>
+          </button>
+
+          <!-- Mobile Menu Hamburger Button -->
+          <button
+            id="mobileMenuToggle"
+            aria-label="Toggle Mobile Menu"
+            class="md:hidden w-9 h-9 rounded-full border border-neutral-300 dark:border-white/15 bg-neutral-100 dark:bg-white/5 text-neutral-700 dark:text-zinc-300 hover:bg-neutral-200 dark:hover:bg-white/15 flex items-center justify-center transition-all"
+          >
+            <i class="fas fa-bars text-sm"></i>
+          </button>
         </div>
-      </div>
+
+        <!-- Mobile Floating Island Dropdown -->
+        <div
+          id="mobileMenu"
+          class="hidden md:hidden absolute top-full left-0 right-0 mt-2.5 p-3.5 bg-white/95 dark:bg-[#121215]/95 backdrop-blur-2xl rounded-3xl border border-neutral-200 dark:border-white/15 shadow-2xl space-y-1.5 transition-all duration-300"
+        >
+          <a
+            href="#home"
+            class="mobile-nav-link flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-neutral-700 dark:text-zinc-300 hover:bg-neutral-100 dark:hover:bg-white/10 rounded-2xl transition-colors"
+          >
+            <span>Home</span>
+            <i class="fas fa-chevron-right text-[10px] text-neutral-400"></i>
+          </a>
+          <a
+            href="#experience"
+            class="mobile-nav-link flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-neutral-700 dark:text-zinc-300 hover:bg-neutral-100 dark:hover:bg-white/10 rounded-2xl transition-colors"
+          >
+            <span>Experience</span>
+            <i class="fas fa-chevron-right text-[10px] text-neutral-400"></i>
+          </a>
+          <a
+            href="#about"
+            class="mobile-nav-link flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-neutral-700 dark:text-zinc-300 hover:bg-neutral-100 dark:hover:bg-white/10 rounded-2xl transition-colors"
+          >
+            <span>About</span>
+            <i class="fas fa-chevron-right text-[10px] text-neutral-400"></i>
+          </a>
+          <a
+            href="#projects"
+            class="mobile-nav-link flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-neutral-700 dark:text-zinc-300 hover:bg-neutral-100 dark:hover:bg-white/10 rounded-2xl transition-colors"
+          >
+            <span>Featured Lab</span>
+            <i class="fas fa-chevron-right text-[10px] text-neutral-400"></i>
+          </a>
+          <a
+            href="#skills"
+            class="mobile-nav-link flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-neutral-700 dark:text-zinc-300 hover:bg-neutral-100 dark:hover:bg-white/10 rounded-2xl transition-colors"
+          >
+            <span>Skills</span>
+            <i class="fas fa-chevron-right text-[10px] text-neutral-400"></i>
+          </a>
+          <a
+            href="#certificate"
+            class="mobile-nav-link flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-neutral-700 dark:text-zinc-300 hover:bg-neutral-100 dark:hover:bg-white/10 rounded-2xl transition-colors"
+          >
+            <span>Certificates</span>
+            <i class="fas fa-chevron-right text-[10px] text-neutral-400"></i>
+          </a>
+          <a
+            href="#contact"
+            class="mobile-nav-link flex items-center justify-between px-4 py-2.5 text-xs font-bold text-black dark:text-white bg-neutral-100 dark:bg-white/10 rounded-2xl transition-colors"
+          >
+            <span>Let's Talk (Contact)</span>
+            <i class="fas fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </nav>
     </header>
 
-    <!-- Main Container -->
+    <!-- Main Content Container -->
     <main>
-      <!-- Hero Section -->
+      <!-- HERO SECTION (Adopted from Figma Reference: Glowing Avatar, Doodle Arrow Bubble, Catchy Headline, Typing Role) -->
       <section
-        class="min-h-screen pt-36 pb-20 flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-neutral-50 via-white to-white dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-900"
+        id="home"
+        class="min-h-screen flex items-center justify-center pt-28 pb-16 px-6 relative overflow-hidden bg-neutral-50 dark:bg-[#09090b]"
       >
-        <!-- Subtle Monochrome Background Pattern -->
+        <!-- Subtle Titanium Radial Grid Texture -->
         <div
-          class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"
+          class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:28px_28px] opacity-40 pointer-events-none"
         ></div>
 
-        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-          <!-- Availability Badge -->
-          <div
-            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-300 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md shadow-sm mb-8 animate-fade-in-up"
-          >
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse-slow"></span>
-            <span class="text-xs font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-300"
-              >Available for projects & roles</span
-            >
-          </div>
-
-          <!-- Profile Avatar with Ring -->
-          <div class="relative inline-block mb-8 animate-float-slow">
-            <div
-              class="absolute -inset-1 rounded-full bg-gradient-to-r from-neutral-400 to-neutral-900 dark:from-neutral-700 dark:to-white blur-md opacity-30 group-hover:opacity-100 transition duration-1000"
-            ></div>
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s9fABQ-d9lMFNfFJcJqeKq0pL9IhwNIKYA&s"
-              alt="Arief Mochammad Akbar"
-              class="relative w-36 h-36 rounded-full mx-auto border-2 border-black dark:border-white shadow-xl object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-
-          <!-- Hero Headline -->
-          <h1
-            class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 text-black dark:text-white"
-          >
-            Arief Mochammad Akbar
-          </h1>
-
-          <p
-            class="text-xl sm:text-2xl font-semibold tracking-tight text-neutral-600 dark:text-neutral-300 mb-6 h-8 flex items-center justify-center"
-          >
-            <span id="typingRole" class="typing-cursor">Informatics Engineering Student</span>
-          </p>
-
-          <p
-            class="text-base sm:text-lg max-w-2xl mx-auto text-neutral-600 dark:text-neutral-400 leading-relaxed mb-10"
-          >
-            Crafting high-performance, clean, and intuitive web experiences with modern JavaScript frameworks, crisp typography, and fluid micro-interactions.
-          </p>
-
-          <!-- Call to Action Buttons -->
-          <div class="flex flex-wrap justify-center items-center gap-4">
-            <a
-              href="#projects"
-              class="inline-flex items-center px-8 py-3.5 rounded-full font-semibold text-sm bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5"
-            >
-              <span>Explore My Work</span>
-              <i class="fas fa-arrow-down ml-2.5 text-xs"></i>
-            </a>
-
-            <a
-              href="assets/img/CV.jpg"
-              target="_blank"
-              class="inline-flex items-center px-8 py-3.5 rounded-full font-semibold text-sm border border-neutral-300 dark:border-neutral-700 bg-transparent text-neutral-900 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-all duration-300 hover:-translate-y-0.5"
-            >
-              <span>View Resume</span>
-              <i class="fas fa-external-link-alt ml-2.5 text-xs"></i>
-            </a>
-          </div>
-
-          <!-- Social Links -->
-          <div class="mt-14 flex justify-center items-center space-x-6">
-            <a
-              href="https://github.com/kaiiooo23"
-              target="_blank"
-              aria-label="GitHub Profile"
-              class="p-3 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-110"
-            >
-              <i class="fab fa-github text-xl"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/arief-akbar/"
-              target="_blank"
-              aria-label="LinkedIn Profile"
-              class="p-3 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-110"
-            >
-              <i class="fab fa-linkedin text-xl"></i>
-            </a>
-            <a
-              href="https://x.com/chillwhithkaii"
-              target="_blank"
-              aria-label="Twitter Profile"
-              class="p-3 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-110"
-            >
-              <i class="fab fa-twitter text-xl"></i>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- About Section -->
-      <section id="about" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
-        <div class="max-w-6xl mx-auto px-6">
-          <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
-              About Me
-            </h2>
-            <p class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white">
-              Building sleek, modern web applications with focus on usability.
-            </p>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-12 items-center">
-            <!-- Left Info Column -->
-            <div class="space-y-6 text-neutral-600 dark:text-neutral-400 leading-relaxed text-base">
-              <p>
-                Hello! I am <strong class="text-black dark:text-white">Arief Mochammad Akbar</strong>, an Informatics Engineering student with a strong passion for Front-End Web Development and modern user interface design.
-              </p>
-              <p>
-                Currently pursuing my degree in Informatics Engineering, I blend core computer science principles—such as software architecture, data structures, and algorithms—with modern web technologies like React, Vue.js, JavaScript (ES6+), and Tailwind CSS.
-              </p>
-              <p>
-                I thrive on solving complex technical challenges, building responsive and accessible web applications, and continuously expanding my expertise in software engineering and digital product design.
-              </p>
-            </div>
-
-            <!-- Right Feature Cards -->
-            <div class="grid grid-cols-1 gap-4">
-              <div
-                class="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 hover:border-black dark:hover:border-white transition-all duration-300"
-              >
-                <div class="flex items-start gap-4">
-                  <div class="p-3 rounded-xl bg-black text-white dark:bg-white dark:text-black">
-                    <i class="fas fa-code text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-lg text-black dark:text-white mb-1">Clean & Modular Architecture</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Writing scalable, maintainable front-end components adhering to clean code standards.</p>
+        <div class="container mx-auto max-w-6xl relative z-10">
+          <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <!-- Left: Floating Avatar with Ambient Glow & Doodle Pointer -->
+            <div class="flex justify-center lg:justify-end relative w-full lg:w-auto">
+              <div class="relative">
+                <!-- Mobile Doodle Speech Bubble -->
+                <div class="lg:hidden mb-6 flex justify-center">
+                  <div
+                    class="relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-300 dark:border-white/15 bg-white/90 dark:bg-white/5 backdrop-blur-md shadow-sm"
+                  >
+                    <span class="text-xs text-neutral-600 dark:text-zinc-400">Hello! I Am</span>
+                    <span class="text-xs font-bold text-neutral-900 dark:text-white"
+                      >Arief Mochammad Akbar</span
+                    >
                   </div>
                 </div>
-              </div>
 
-              <div
-                class="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 hover:border-black dark:hover:border-white transition-all duration-300"
-              >
-                <div class="flex items-start gap-4">
-                  <div class="p-3 rounded-xl bg-black text-white dark:bg-white dark:text-black">
-                    <i class="fas fa-mobile-alt text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-lg text-black dark:text-white mb-1">Responsive & Fluid UX</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Creating seamless layouts that adapt perfectly across mobile, tablet, and desktop screens.</p>
-                  </div>
-                </div>
-              </div>
+                <!-- Luminous Ambient Halo Glow behind avatar (Titanium Silver/White glow) -->
+                <div
+                  class="absolute -inset-4 rounded-full bg-gradient-to-tr from-white/20 via-zinc-400/20 to-white/10 blur-3xl opacity-70 dark:opacity-80 pointer-events-none"
+                ></div>
 
-              <div
-                class="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 hover:border-black dark:hover:border-white transition-all duration-300"
-              >
-                <div class="flex items-start gap-4">
-                  <div class="p-3 rounded-xl bg-black text-white dark:bg-white dark:text-black">
-                    <i class="fas fa-bolt text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-lg text-black dark:text-white mb-1">Performance & Micro-Interactions</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Engaging animations and fast load speeds for an outstanding user experience.</p>
-                  </div>
+                <!-- Main Avatar Image -->
+                <div class="relative animate-float-slow">
+                  <img
+                    src="assets/img/profile.png"
+                    alt="Arief Mochammad Akbar"
+                    class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full object-cover border-2 border-black/20 dark:border-white/30 shadow-2xl transition-transform duration-500 hover:scale-105"
+                  />
+                  <!-- Small subtle status dot badge -->
+                  <div
+                    class="absolute bottom-4 right-4 w-6 h-6 rounded-full bg-emerald-500 border-4 border-white dark:border-[#09090b] shadow-md"
+                    title="Available for projects & opportunities"
+                  ></div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Education Section -->
-      <section id="education" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-neutral-50/50 dark:bg-neutral-900/30">
-        <div class="max-w-4xl mx-auto px-6">
-          <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
-              Background
-            </h2>
-            <p class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white">
-              Education & Learning Timeline
-            </p>
-          </div>
+            <!-- Right: Hero Typography & Taglines -->
+            <div class="flex-1 space-y-6 text-center lg:text-left">
+              <!-- Desktop Hand-drawn Doodle Bubble & Arrow -->
+              <div class="hidden lg:inline-flex items-center gap-3 relative">
+                <!-- SVG Doodle Arrow Pointer -->
+                <svg
+                  class="w-10 h-10 text-neutral-400 dark:text-zinc-400 -rotate-12 animate-pulse-slow"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                >
+                  <path
+                    d="M30 10 C 22 18, 14 24, 8 28 M 8 28 L 18 28 M 8 28 L 10 18"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
 
-          <div class="relative border-l-2 border-neutral-300 dark:border-neutral-800 ml-4 md:ml-8 space-y-12">
-            <!-- Timeline Item 1 -->
-            <div class="relative pl-8 md:pl-10 group">
-              <span
-                class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-neutral-950 border-2 border-black dark:border-white group-hover:scale-125 transition-transform duration-300"
-              ></span>
-              <div
-                class="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-all duration-300"
-              >
-                <div class="flex flex-wrap justify-between items-center mb-2">
-                  <h3 class="text-xl font-bold text-black dark:text-white">Vocational School Bina Putera Nusantara</h3>
-                  <span class="text-xs font-semibold px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
-                    >2022 - 2026</span
+                <div
+                  class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-300 dark:border-white/15 bg-white/80 dark:bg-white/5 backdrop-blur-md shadow-sm"
+                >
+                  <span class="text-sm text-neutral-600 dark:text-zinc-400">Hello! I Am</span>
+                  <span class="text-sm font-bold text-neutral-900 dark:text-white"
+                    >Arief Mochammad Akbar</span
                   >
                 </div>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-3">Network and Application Information Systems</p>
-                <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  Mastered modern web development fundamentals, responsive UI implementation, DOM manipulation, asynchronous JavaScript APIs, and front-end build tools.
+              </div>
+
+              <!-- Main Signature Headline -->
+              <div>
+                <p class="text-2xl sm:text-3xl text-neutral-600 dark:text-zinc-400 font-medium mb-1">
+                  A Developer who
+                </p>
+                <h1
+                  class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[1.15]"
+                >
+                  Judges code<br class="hidden sm:inline" />
+                  by its<!-- -->
+                  <span class="relative inline-block px-2">
+                    <!-- Hand-drawn Style Circular SVG Outline -->
+                    <svg
+                      class="absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+12px)] text-neutral-400 dark:text-white/40 -rotate-2 pointer-events-none"
+                      viewBox="0 0 200 60"
+                      fill="none"
+                      preserveAspectRatio="none"
+                    >
+                      <path
+                        d="M10,32 C20,10 110,6 185,18 C205,22 195,50 140,56 C70,64 12,56 8,36"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <span
+                      class="relative bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-500 dark:from-white dark:via-zinc-200 dark:to-zinc-400 bg-clip-text text-transparent font-black"
+                    >
+                      interface
+                    </span> </span
+                  >...
+                </h1>
+                <p class="text-sm sm:text-base text-neutral-500 dark:text-zinc-400 mt-4 max-w-xl">
+                  Because if the user experience does not impress you, what else can?
                 </p>
               </div>
-            </div>
 
-            <!-- Timeline Item 2 -->
-            <div class="relative pl-8 md:pl-10 group">
-              <span
-                class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-neutral-950 border-2 border-black dark:border-white group-hover:scale-125 transition-transform duration-300"
-              ></span>
-              <div
-                class="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-all duration-300"
-              >
-                <div class="flex flex-wrap justify-between items-center mb-2">
-                  <h3 class="text-xl font-bold text-black dark:text-white">Pamulang University</h3>
-                  <span class="text-xs font-semibold px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
-                    >2026 - Now</span
+              <!-- Typing Role & Current Status -->
+              <div class="space-y-4 pt-2">
+                <p
+                  class="text-2xl sm:text-4xl text-neutral-900 dark:text-white font-bold tracking-tight"
+                >
+                  I'm a
+                  <span
+                    id="typingRole"
+                    class="text-neutral-900 dark:text-zinc-100 font-extrabold underline decoration-neutral-300 dark:decoration-zinc-700 underline-offset-4"
                   >
+                    Informatics Engineering Student
+                  </span>
+                  <span class="animate-pulse font-normal">|</span>
+                </p>
+
+                <!-- Current Affiliation Pill -->
+                <div
+                  class="text-sm sm:text-base text-neutral-600 dark:text-zinc-400 flex flex-wrap items-center justify-center lg:justify-start gap-2"
+                >
+                  <span>Currently studying Informatics Engineering at</span>
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-200/80 dark:bg-white/10 border border-neutral-300 dark:border-white/15 text-neutral-900 dark:text-white font-semibold text-xs"
+                  >
+                    <i class="fas fa-university text-[11px] text-neutral-600 dark:text-zinc-300"></i>
+                    Pamulang University
+                  </span>
                 </div>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-3">Informatics Engineering</p>
-                <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  Trained in integrating modern web applications with AI workflows, building smart developer tools, and leveraging modular CSS & JS architecture.
+
+                <p
+                  class="text-sm sm:text-base text-neutral-600 dark:text-zinc-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 pt-1"
+                >
+                  A passionate front-end developer and UI enthusiast dedicated to crafting clean,
+                  modular, and high-performance digital products that strike an equilibrium between user
+                  delight and robust architecture.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Skills Section -->
-      <section id="skills" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
-        <div class="max-w-6xl mx-auto px-6">
-          <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
-              Proficiency
-            </h2>
-            <p class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white">
-              Tech Stack & Toolkit
-            </p>
-          </div>
-
-          <div class="grid md:grid-cols-3 gap-8">
-            <!-- Frontend Stack -->
-            <div
-              class="p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 hover:border-black dark:hover:border-white transition-all duration-300"
-            >
-              <div class="w-12 h-12 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-6">
-                <i class="fas fa-desktop text-xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-black dark:text-white mb-4">Frontend Core</h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">React.js</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">Vue.js</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">JavaScript (ES6+)</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">HTML5 & CSS3</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">TypeScript</span>
-              </div>
-            </div>
-
-            <!-- Styling & Frameworks -->
-            <div
-              class="p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 hover:border-black dark:hover:border-white transition-all duration-300"
-            >
-              <div class="w-12 h-12 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-6">
-                <i class="fas fa-paint-brush text-xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-black dark:text-white mb-4">Styling & UI</h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">Tailwind CSS</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">PostCSS</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">Responsive Design</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">Flexbox & Grid</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">Figma & UI Kits</span>
-              </div>
-            </div>
-
-            <!-- Tools & Workflows -->
-            <div
-              class="p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 hover:border-black dark:hover:border-white transition-all duration-300"
-            >
-              <div class="w-12 h-12 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-6">
-                <i class="fas fa-tools text-xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-black dark:text-white mb-4">Tools & Ecosystem</h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">Git & GitHub</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">Vite / Webpack</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">REST APIs</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">Socket.io</span>
-                <span class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-black dark:text-white">VS Code</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Certificates Section -->
-      <section id="certificate" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-neutral-50/50 dark:bg-neutral-900/30">
-        <div class="max-w-6xl mx-auto px-6">
-          <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
-              Accomplishments
-            </h2>
-            <p class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white">
-              Verified Certificates
-            </p>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-8">
-            <!-- Certificate 1 -->
-            <div
-              class="group p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm hover:border-black dark:hover:border-white transition-all duration-300"
-            >
-              <div class="overflow-hidden rounded-xl mb-6 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
-                <img
-                  src="assets/img/certif.jpg"
-                  alt="Dicoding Academy Certificate"
-                  class="w-full h-52 object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div class="flex justify-between items-start mb-2">
-                <h3 class="text-xl font-bold text-black dark:text-white">Dicoding Academy Certificate</h3>
-                <span class="text-xs font-semibold px-2.5 py-1 rounded bg-black text-white dark:bg-white dark:text-black">Verified</span>
-              </div>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Front-End Web Development Specialization</p>
-              <a
-                href="assets/Dicoding Academy Certificate.pdf"
-                target="_blank"
-                class="inline-flex items-center text-sm font-semibold text-black dark:text-white hover:underline"
+              <!-- Call To Action & Social Links -->
+              <div
+                class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4"
               >
-                <span>View PDF Document</span>
-                <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                <a
+                  href="#projects"
+                  class="inline-flex items-center px-7 py-3 rounded-full font-semibold text-sm bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5"
+                >
+                  <span>Explore Featured Lab</span>
+                  <i class="fas fa-arrow-down ml-2 text-xs"></i>
+                </a>
+
+                <a
+                  href="assets/img/CV.jpg"
+                  target="_blank"
+                  class="inline-flex items-center px-7 py-3 rounded-full font-semibold text-sm border border-neutral-300 dark:border-white/20 bg-transparent text-neutral-900 dark:text-zinc-100 hover:bg-neutral-100 dark:hover:bg-white/10 transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  <span>View Resume / CV</span>
+                  <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                </a>
+
+                <!-- Social Profile Buttons -->
+                <div class="flex items-center gap-2.5 ml-2">
+                  <a
+                    href="https://github.com/kaiiooo23"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub Profile"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/5 text-neutral-700 dark:text-zinc-300 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all hover:scale-110"
+                  >
+                    <i class="fab fa-github text-base"></i>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/arief-akbar/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn Profile"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/5 text-neutral-700 dark:text-zinc-300 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all hover:scale-110"
+                  >
+                    <i class="fab fa-linkedin-in text-base"></i>
+                  </a>
+                  <a
+                    href="https://x.com/chillwhithkaii"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Twitter Profile"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/5 text-neutral-700 dark:text-zinc-300 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all hover:scale-110"
+                  >
+                    <i class="fab fa-twitter text-base"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK & EDUCATION EXPERIENCE SECTION (Interactive Tabbed Bento Grid Layout) -->
+      <section
+        id="experience"
+        class="reveal-on-scroll py-24 px-6 border-t border-neutral-200 dark:border-white/10 bg-white dark:bg-[#09090b]"
+      >
+        <div class="container mx-auto max-w-6xl">
+          <!-- Section Header -->
+          <div class="text-center mb-12">
+            <p
+              class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-zinc-500 mb-2"
+            >
+              Journey & Milestones
+            </p>
+            <h2
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white tracking-tight"
+            >
+              Experience & Education
+            </h2>
+            <p class="text-sm text-neutral-500 dark:text-zinc-400 mt-2 max-w-xl mx-auto">
+              Switch between tabs below to explore academic background, verified credentials, and engineering specializations.
+            </p>
+          </div>
+
+          <!-- Interactive Tab Switcher -->
+          <div class="flex justify-center mb-12">
+            <div
+              class="inline-flex p-1.5 rounded-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 backdrop-blur-md shadow-sm"
+            >
+              <button
+                id="tabEducationBtn"
+                class="px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 bg-neutral-900 text-white dark:bg-white dark:text-black shadow-md flex items-center gap-2"
+              >
+                <i class="fas fa-graduation-cap text-xs"></i>
+                <span>Education & Academics</span>
+              </button>
+              <button
+                id="tabWorkBtn"
+                class="px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 text-neutral-600 dark:text-zinc-400 hover:text-black dark:hover:text-white flex items-center gap-2"
+              >
+                <i class="fas fa-certificate text-xs"></i>
+                <span>Experience & Certifications</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- TAB PANEL 1: EDUCATION BENTO GRID -->
+          <div id="panelEducation" class="space-y-6 transition-all duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <!-- Bento Card 1: Pamulang University (Featured 7 Columns) -->
+              <div
+                class="lg:col-span-7 bg-neutral-50 dark:bg-gradient-to-br dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 rounded-3xl p-7 sm:p-9 border border-neutral-200 dark:border-white/10 border-t-4 dark:border-t-white shadow-sm hover:shadow-xl dark:hover:shadow-[0_0_35px_rgba(255,255,255,0.08)] transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <div class="flex items-center gap-2.5">
+                      <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      <span
+                        class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400"
+                        >Current Degree Program</span
+                      >
+                    </div>
+                    <span
+                      class="text-xs font-semibold px-3 py-1 rounded-full border border-neutral-300 dark:border-white/15 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200 shadow-sm"
+                    >
+                      2026 — Present
+                    </span>
+                  </div>
+
+                  <div class="flex items-center gap-4 mb-4">
+                    <div
+                      class="w-14 h-14 rounded-2xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center text-2xl shadow-md flex-shrink-0"
+                    >
+                      <i class="fas fa-university"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white">
+                        Pamulang University
+                      </h3>
+                      <p class="text-sm font-semibold text-neutral-500 dark:text-zinc-400">
+                        Bachelor of Computer Science / Informatics Engineering
+                      </p>
+                    </div>
+                  </div>
+
+                  <p class="text-sm sm:text-base text-neutral-600 dark:text-zinc-300 leading-relaxed mb-6">
+                    Enrolled in undergraduate Informatics Engineering, studying core software engineering
+                    principles, algorithmic complexity, database architectures, and cutting-edge web technologies.
+                  </p>
+
+                  <!-- Key Learning Pillars Inside -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                    <div
+                      class="p-4 rounded-2xl bg-white dark:bg-white/5 border border-neutral-200 dark:border-white/10"
+                    >
+                      <div class="flex items-center gap-2 mb-1">
+                        <i class="fas fa-sitemap text-neutral-700 dark:text-zinc-300 text-xs"></i>
+                        <span class="text-xs font-bold text-neutral-900 dark:text-white"
+                          >Software Architecture</span
+                        >
+                      </div>
+                      <p class="text-xs text-neutral-500 dark:text-zinc-400">
+                        Modular design, scalable component hierarchies, and clean code paradigms.
+                      </p>
+                    </div>
+
+                    <div
+                      class="p-4 rounded-2xl bg-white dark:bg-white/5 border border-neutral-200 dark:border-white/10"
+                    >
+                      <div class="flex items-center gap-2 mb-1">
+                        <i class="fas fa-bolt text-neutral-700 dark:text-zinc-300 text-xs"></i>
+                        <span class="text-xs font-bold text-neutral-900 dark:text-white"
+                          >Web Engineering</span
+                        >
+                      </div>
+                      <p class="text-xs text-neutral-500 dark:text-zinc-400">
+                        High-performance responsive rendering, REST APIs, and UI/UX accessibility.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Skill Tags -->
+                <div class="pt-4 border-t border-neutral-200 dark:border-white/10">
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >Algorithms</span
+                    >
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >Data Structures</span
+                    >
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >React & Vue</span
+                    >
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >Database Systems</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bento Card 2: SMK Bina Putera Nusantara (5 Columns) -->
+              <div
+                class="lg:col-span-5 bg-neutral-50 dark:bg-gradient-to-br dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 rounded-3xl p-7 sm:p-9 border border-neutral-200 dark:border-white/10 border-t-4 dark:border-t-zinc-400 shadow-sm hover:shadow-xl dark:hover:shadow-[0_0_35px_rgba(255,255,255,0.08)] transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <span
+                      class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-zinc-400"
+                      >Vocational Diploma</span
+                    >
+                    <span
+                      class="text-xs font-semibold px-3 py-1 rounded-full border border-neutral-300 dark:border-white/15 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200 shadow-sm"
+                    >
+                      2022 — 2026
+                    </span>
+                  </div>
+
+                  <div class="flex items-center gap-4 mb-4">
+                    <div
+                      class="w-14 h-14 rounded-2xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center text-2xl shadow-md flex-shrink-0"
+                    >
+                      <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white">
+                        SMK Bina Putera Nusantara
+                      </h3>
+                      <p class="text-sm font-semibold text-neutral-500 dark:text-zinc-400">
+                        Network & Application Systems (SIJA)
+                      </p>
+                    </div>
+                  </div>
+
+                  <p class="text-sm text-neutral-600 dark:text-zinc-300 leading-relaxed mb-6">
+                    4-year comprehensive technical program developing practical foundations in computer networking,
+                    system administration, web markup standards, and responsive front-end programming.
+                  </p>
+
+                  <!-- Key Learning Bullets -->
+                  <div class="space-y-2.5 mb-6">
+                    <div class="flex items-start gap-2.5 text-xs text-neutral-700 dark:text-zinc-300">
+                      <i class="fas fa-check-circle text-neutral-800 dark:text-white mt-0.5"></i>
+                      <span>Built responsive websites with HTML5, CSS3, Flexbox, and JavaScript DOM.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5 text-xs text-neutral-700 dark:text-zinc-300">
+                      <i class="fas fa-check-circle text-neutral-800 dark:text-white mt-0.5"></i>
+                      <span>Learned networking protocols, client-server models, and Linux terminal operations.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5 text-xs text-neutral-700 dark:text-zinc-300">
+                      <i class="fas fa-check-circle text-neutral-800 dark:text-white mt-0.5"></i>
+                      <span>Collaborative project development using Git & GitHub version control workflows.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Skill Tags -->
+                <div class="pt-4 border-t border-neutral-200 dark:border-white/10">
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >Network Systems</span
+                    >
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >JavaScript</span
+                    >
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >Git Workflows</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bento Card 3: Academic Highlights Quick Strip -->
+            <div
+              class="p-6 rounded-2xl bg-neutral-100/80 dark:bg-white/5 border border-neutral-200 dark:border-white/10 backdrop-blur-md flex flex-wrap items-center justify-between gap-6"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-10 h-10 rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-black flex items-center justify-center font-bold text-sm"
+                >
+                  <i class="fas fa-medal"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-neutral-900 dark:text-white">
+                    Continuous Academic & Practical Progression
+                  </h4>
+                  <p class="text-xs text-neutral-500 dark:text-zinc-400">
+                    Bridging vocational networking skills with computer science engineering theory.
+                  </p>
+                </div>
+              </div>
+              <a
+                href="#projects"
+                class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black text-xs font-semibold hover:opacity-90 transition-opacity"
+              >
+                <span>View Practical Projects</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
               </a>
             </div>
+          </div>
 
-            <!-- Certificate 2 -->
-            <div
-              class="group p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm hover:border-black dark:hover:border-white transition-all duration-300"
-            >
-              <div class="overflow-hidden rounded-xl mb-6 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
-                <img
-                  src="assets/img/certif2.jpg"
-                  alt="DevCoach AI Agent Certificate"
-                  class="w-full h-52 object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div class="flex justify-between items-start mb-2">
-                <h3 class="text-xl font-bold text-black dark:text-white">DevCoach AI Agent Certificate</h3>
-                <span class="text-xs font-semibold px-2.5 py-1 rounded bg-black text-white dark:bg-white dark:text-black">Verified</span>
-              </div>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">AI Development & Web Architecture</p>
-              <a
-                href="assets/DevCoach AI Agent.pdf"
-                target="_blank"
-                class="inline-flex items-center text-sm font-semibold text-black dark:text-white hover:underline"
+          <!-- TAB PANEL 2: EXPERIENCE & CERTIFICATIONS BENTO GRID (Hidden by default) -->
+          <div id="panelWork" class="hidden space-y-6 transition-all duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <!-- Bento Card 1: Dicoding Academy (6 Columns) -->
+              <div
+                class="lg:col-span-6 bg-neutral-50 dark:bg-gradient-to-br dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 rounded-3xl p-7 sm:p-9 border border-neutral-200 dark:border-white/10 border-t-4 dark:border-t-white shadow-sm hover:shadow-xl dark:hover:shadow-[0_0_35px_rgba(255,255,255,0.08)] transition-all duration-300 flex flex-col justify-between"
               >
-                <span>View PDF Document</span>
-                <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                <div>
+                  <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <span
+                      class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5"
+                    >
+                      <i class="fas fa-check-circle"></i>
+                      <span>Verified Certification</span>
+                    </span>
+                    <span
+                      class="text-xs font-semibold px-3 py-1 rounded-full border border-neutral-300 dark:border-white/15 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200 shadow-sm"
+                    >
+                      Dicoding Academy
+                    </span>
+                  </div>
+
+                  <div class="flex items-center gap-4 mb-4">
+                    <div
+                      class="w-14 h-14 rounded-2xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center text-2xl shadow-md flex-shrink-0"
+                    >
+                      <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white">
+                        Front-End Web Developer
+                      </h3>
+                      <p class="text-sm font-semibold text-neutral-500 dark:text-zinc-400">
+                        Google Authorized Training Partner
+                      </p>
+                    </div>
+                  </div>
+
+                  <p class="text-sm text-neutral-600 dark:text-zinc-300 leading-relaxed mb-6">
+                    Mastered comprehensive modern front-end engineering: asynchronous JavaScript (Fetch & REST APIs),
+                    Shadow DOM, custom Web Components, Webpack build automation, and web performance profiling.
+                  </p>
+
+                  <div class="space-y-2 mb-6">
+                    <div class="flex items-start gap-2.5 text-xs text-neutral-700 dark:text-zinc-300">
+                      <i class="fas fa-check text-neutral-800 dark:text-white mt-0.5"></i>
+                      <span>Constructed Single Page Applications (SPAs) with reactive state handling.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5 text-xs text-neutral-700 dark:text-zinc-300">
+                      <i class="fas fa-check text-neutral-800 dark:text-white mt-0.5"></i>
+                      <span>Passed rigorous code reviews meeting international clean code standards.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-4 border-t border-neutral-200 dark:border-white/10 flex items-center justify-between gap-4">
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-white dark:bg-white/10 border border-neutral-200 dark:border-white/15">ES6+</span>
+                    <span class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-white dark:bg-white/10 border border-neutral-200 dark:border-white/15">REST APIs</span>
+                    <span class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-white dark:bg-white/10 border border-neutral-200 dark:border-white/15">Webpack</span>
+                  </div>
+                  <a
+                    href="assets/Dicoding%20Academy%20Certificate.pdf"
+                    target="_blank"
+                    class="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-900 dark:text-white hover:underline flex-shrink-0"
+                  >
+                    <span>View PDF</span>
+                    <i class="fas fa-external-link-alt text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Bento Card 2: DevCoach AI Agent Development (6 Columns) -->
+              <div
+                class="lg:col-span-6 bg-neutral-50 dark:bg-gradient-to-br dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 rounded-3xl p-7 sm:p-9 border border-neutral-200 dark:border-white/10 border-t-4 dark:border-t-zinc-300 shadow-sm hover:shadow-xl dark:hover:shadow-[0_0_35px_rgba(255,255,255,0.08)] transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <span
+                      class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-zinc-300 flex items-center gap-1.5"
+                    >
+                      <i class="fas fa-sparkles"></i>
+                      <span>AI Tooling Specialization</span>
+                    </span>
+                    <span
+                      class="text-xs font-semibold px-3 py-1 rounded-full border border-neutral-300 dark:border-white/15 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200 shadow-sm"
+                    >
+                      DevCoach AI
+                    </span>
+                  </div>
+
+                  <div class="flex items-center gap-4 mb-4">
+                    <div
+                      class="w-14 h-14 rounded-2xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center text-2xl shadow-md flex-shrink-0"
+                    >
+                      <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white">
+                        AI Agent & Modern Web Workflows
+                      </h3>
+                      <p class="text-sm font-semibold text-neutral-500 dark:text-zinc-400">
+                        Autonomous Developer Tools
+                      </p>
+                    </div>
+                  </div>
+
+                  <p class="text-sm text-neutral-600 dark:text-zinc-300 leading-relaxed mb-6">
+                    Specialized training in architecting AI-assisted developer workflows, generative UI pipelines,
+                    prompt engineering for code generation, and automated front-end testing suites.
+                  </p>
+
+                  <div class="space-y-2 mb-6">
+                    <div class="flex items-start gap-2.5 text-xs text-neutral-700 dark:text-zinc-300">
+                      <i class="fas fa-check text-neutral-800 dark:text-white mt-0.5"></i>
+                      <span>Constructed interactive agent assistants for code refactoring and rapid prototyping.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5 text-xs text-neutral-700 dark:text-zinc-300">
+                      <i class="fas fa-check text-neutral-800 dark:text-white mt-0.5"></i>
+                      <span>Implemented autonomous tool invocation and structured JSON schema validations.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-4 border-t border-neutral-200 dark:border-white/10 flex items-center justify-between gap-4">
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-white dark:bg-white/10 border border-neutral-200 dark:border-white/15">LLM Tools</span>
+                    <span class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-white dark:bg-white/10 border border-neutral-200 dark:border-white/15">Node.js</span>
+                    <span class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-white dark:bg-white/10 border border-neutral-200 dark:border-white/15">Automation</span>
+                  </div>
+                  <a
+                    href="assets/DevCoach%20AI%20Agent.pdf"
+                    target="_blank"
+                    class="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-900 dark:text-white hover:underline flex-shrink-0"
+                  >
+                    <span>View PDF</span>
+                    <i class="fas fa-external-link-alt text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bento Card 3: Project Track Record -->
+            <div
+              class="p-7 rounded-3xl bg-neutral-100/90 dark:bg-white/5 border border-neutral-200 dark:border-white/10 backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-6"
+            >
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-zinc-400">Independent Engineering</span>
+                <h4 class="text-lg font-bold text-neutral-900 dark:text-white mt-0.5">
+                  Production Web Platforms Delivered
+                </h4>
+                <p class="text-xs sm:text-sm text-neutral-600 dark:text-zinc-400 mt-1">
+                  Built luxury e-commerce boutique (React), real-time PC repair tracking (Vue + Socket.io), and climate analytics dashboard.
+                </p>
+              </div>
+              <a
+                href="#projects"
+                class="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black text-xs font-bold hover:opacity-90 transition-opacity flex-shrink-0"
+              >
+                <span>Explore Featured Lab</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Projects Section with Interactive Pop-Up Trigger -->
-      <section id="projects" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
-        <div class="max-w-6xl mx-auto px-6">
-          <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
-              Portfolio Showcase
+      <!-- ABOUT SECTION (Adopted Central Statement & Feature Cards) -->
+      <section
+        id="about"
+        class="reveal-on-scroll py-24 px-6 border-t border-neutral-200 dark:border-white/10 bg-neutral-50/50 dark:bg-[#09090b]"
+      >
+        <div class="container mx-auto max-w-6xl">
+          <!-- Central Vision Quote (Reference Style) -->
+          <div class="text-center mb-16 max-w-4xl mx-auto">
+            <p
+              class="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 dark:text-white leading-relaxed"
+            >
+              I'm currently looking to join a
+              <span class="text-neutral-900 dark:text-white underline decoration-zinc-500"
+                >cross-functional team</span
+              ><br />
+              <span class="text-base sm:text-lg font-normal text-neutral-500 dark:text-zinc-400">
+                that values improving people's lives through accessible, high-performance web
+                engineering.
+              </span>
+            </p>
+          </div>
+
+          <!-- 3 Pillars Cards -->
+          <div class="grid md:grid-cols-3 gap-6">
+            <div
+              class="p-7 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-white/5 backdrop-blur-md shadow-sm hover:border-black dark:hover:border-white transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center text-lg mb-5 shadow-sm"
+              >
+                <i class="fas fa-code"></i>
+              </div>
+              <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">
+                Clean & Modular Code
+              </h3>
+              <p class="text-sm text-neutral-600 dark:text-zinc-400 leading-relaxed">
+                Writing scalable, readable front-end components adhering strictly to DRY principles,
+                modern ES6+ patterns, and clean architecture.
+              </p>
+            </div>
+
+            <div
+              class="p-7 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-white/5 backdrop-blur-md shadow-sm hover:border-black dark:hover:border-white transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center text-lg mb-5 shadow-sm"
+              >
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">
+                Responsive & Fluid UX
+              </h3>
+              <p class="text-sm text-neutral-600 dark:text-zinc-400 leading-relaxed">
+                Creating intuitive interfaces that render flawlessly across mobile, tablet, and ultra-wide
+                displays using modern Tailwind CSS grid systems.
+              </p>
+            </div>
+
+            <div
+              class="p-7 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-white/5 backdrop-blur-md shadow-sm hover:border-black dark:hover:border-white transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center text-lg mb-5 shadow-sm"
+              >
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-2">
+                Performance & Interactivity
+              </h3>
+              <p class="text-sm text-neutral-600 dark:text-zinc-400 leading-relaxed">
+                Optimized asset bundling, minimal cumulative layout shifts (CLS), and fluid micro-interactions
+                that make every page visit feel instantaneous.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED PROJECTS (LAB) SECTION (Adopted Asymmetrical Glassmorphism Overlapping Cards with Alternating Layout) -->
+      <section
+        id="projects"
+        class="reveal-on-scroll py-24 px-6 border-t border-neutral-200 dark:border-white/10 bg-white dark:bg-[#09090b]"
+      >
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-20">
+            <p
+              class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-zinc-500 mb-2"
+            >
+              Showcase & Innovations
+            </p>
+            <h2
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white tracking-tight"
+            >
+              Featured Projects (Lab)
             </h2>
-            <p class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white">
-              Featured Projects
-            </p>
-            <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">
-              Click on any project to open the interactive details explanation pop-up.
+            <p class="text-sm text-neutral-500 dark:text-zinc-400 mt-2">
+              Click on any project card or explanation button to view interactive technical details.
             </p>
           </div>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Project 1: Maison Velouré -->
-            <div
-              data-project-id="maison"
-              class="group cursor-pointer rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 overflow-hidden shadow-sm hover:shadow-xl hover:border-black dark:hover:border-white transition-all duration-300 flex flex-col"
-            >
-              <div class="relative overflow-hidden bg-neutral-100 dark:bg-neutral-800">
-                <img
-                  src="assets/img/projek1.png"
-                  alt="Maison Velouré Boutique"
-                  class="w-full h-52 object-cover transform transition-transform duration-500 group-hover:scale-105"
-                />
-                <div
-                  class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+          <!-- PROJECT 1: Maison Velouré (Card Left, Mockup Right) -->
+          <div class="mb-24 last:mb-0">
+            <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <!-- Left Overlapping Glass Card -->
+              <div class="relative z-10">
+                <p
+                  class="text-neutral-500 dark:text-zinc-400 text-sm font-semibold tracking-wider uppercase mb-2"
                 >
-                  <span
-                    class="modal-trigger px-4 py-2 rounded-full bg-white text-black font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2"
-                  >
-                    <i class="fas fa-search-plus"></i> View Explanation
-                  </span>
-                </div>
-              </div>
-
-              <div class="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-xl font-bold text-black dark:text-white group-hover:underline">
-                      Maison Velouré
-                    </h3>
-                    <span class="text-xs font-medium text-neutral-500 dark:text-neutral-400">Web App</span>
-                  </div>
-                  <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2 mb-4">
-                    Platform e-commerce modern dengan React dan Tailwind CSS, fitur shopping cart dan payment checkout UI.
-                  </p>
-                </div>
-
-                <div>
-                  <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-2.5 py-1 text-xs font-semibold rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">React</span>
-                    <span class="px-2.5 py-1 text-xs font-semibold rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">Tailwind</span>
-                    <span class="px-2.5 py-1 text-xs font-semibold rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">JavaScript</span>
-                  </div>
-
-                  <div class="flex items-center justify-between pt-4 border-t border-neutral-100 dark:border-neutral-800">
-                    <span class="text-xs font-bold text-black dark:text-white flex items-center gap-1">
-                      <span>Learn Details</span>
-                      <i class="fas fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
-                    </span>
-                    <div class="flex items-center space-x-3">
-                      <a
-                        href="https://ulzzang23.github.io/maisonveloure/"
-                        target="_blank"
-                        aria-label="Live Demo"
-                        class="text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
-                      >
-                        <i class="fas fa-external-link-alt text-sm"></i>
-                      </a>
-                      <a
-                        href="https://github.com/ulzzang23/maisonveloure"
-                        target="_blank"
-                        aria-label="Source Code"
-                        class="text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
-                      >
-                        <i class="fab fa-github text-base"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 2: Tech Care -->
-            <div
-              data-project-id="techcare"
-              class="group cursor-pointer rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 overflow-hidden shadow-sm hover:shadow-xl hover:border-black dark:hover:border-white transition-all duration-300 flex flex-col"
-            >
-              <div class="relative overflow-hidden bg-neutral-100 dark:bg-neutral-800">
-                <img
-                  src="assets/img/projek4.png"
-                  alt="Tech Care Platform"
-                  class="w-full h-52 object-cover transform transition-transform duration-500 group-hover:scale-105"
-                />
-                <div
-                  class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  Featured Project
+                </p>
+                <h3
+                  class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 dark:text-white mb-6"
                 >
-                  <span
-                    class="modal-trigger px-4 py-2 rounded-full bg-white text-black font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2"
-                  >
-                    <i class="fas fa-search-plus"></i> View Explanation
-                  </span>
-                </div>
-              </div>
+                  Maison Velouré – Modern Luxury E-Commerce Platform
+                </h3>
 
-              <div class="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-xl font-bold text-black dark:text-white group-hover:underline">
-                      Tech Care Platform
-                    </h3>
-                    <span class="text-xs font-medium text-neutral-500 dark:text-neutral-400">Web App</span>
-                  </div>
-                  <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2 mb-4">
-                    Website perbaikan hardware Laptop dan PC dengan live chat technician real-time.
-                  </p>
-                </div>
-
-                <div>
-                  <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-2.5 py-1 text-xs font-semibold rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">Vue.js</span>
-                    <span class="px-2.5 py-1 text-xs font-semibold rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">Vuex</span>
-                    <span class="px-2.5 py-1 text-xs font-semibold rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">Socket.io</span>
-                  </div>
-
-                  <div class="flex items-center justify-between pt-4 border-t border-neutral-100 dark:border-neutral-800">
-                    <span class="text-xs font-bold text-black dark:text-white flex items-center gap-1">
-                      <span>Learn Details</span>
-                      <i class="fas fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
-                    </span>
-                    <div class="flex items-center space-x-3">
-                      <a
-                        href="https://techcare-re80gdxk8-ulzzang23s-projects.vercel.app/"
-                        target="_blank"
-                        aria-label="Live Demo"
-                        class="text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
-                      >
-                        <i class="fas fa-external-link-alt text-sm"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 3: Weather Dashboard -->
-            <div
-              data-project-id="weather"
-              class="group cursor-pointer rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 overflow-hidden shadow-sm hover:shadow-xl hover:border-black dark:hover:border-white transition-all duration-300 flex flex-col"
-            >
-              <div class="relative overflow-hidden bg-neutral-100 dark:bg-neutral-800">
-                <img
-                  src="assets/img/projek3.png"
-                  alt="Weather Dashboard"
-                  class="w-full h-52 object-cover transform transition-transform duration-500 group-hover:scale-105"
-                />
                 <div
-                  class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  class="bg-neutral-100/90 dark:bg-white/5 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-neutral-200 dark:border-white/15 shadow-xl lg:w-[calc(100%+15%)] mb-6"
                 >
-                  <span
-                    class="modal-trigger px-4 py-2 rounded-full bg-white text-black font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2"
+                  <p class="text-neutral-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    A full-featured modern e-commerce fashion boutique platform designed to deliver an
+                    elevated, luxurious shopping experience. Features real-time catalog filtering,
+                    interactive persistent cart state, responsive grid layouts, and streamlined checkout UI.
+                  </p>
+
+                  <div class="flex flex-wrap gap-2 mt-4">
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >React</span
+                    >
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >Tailwind CSS</span
+                    >
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >JavaScript</span
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <!-- Live Demo Link -->
+                  <a
+                    href="https://ulzzang23.github.io/maisonveloure/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/5 text-neutral-700 dark:text-white hover:border-black dark:hover:border-white transition-all hover:scale-110"
+                    aria-label="Visit project website"
                   >
-                    <i class="fas fa-search-plus"></i> View Explanation
-                  </span>
+                    <i class="fas fa-external-link-alt text-sm"></i>
+                  </a>
+
+                  <!-- GitHub Source -->
+                  <a
+                    href="https://github.com/ulzzang23/maisonveloure"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/5 text-neutral-700 dark:text-white hover:border-black dark:hover:border-white transition-all hover:scale-110"
+                    aria-label="GitHub Repository"
+                  >
+                    <i class="fab fa-github text-base"></i>
+                  </a>
+
+                  <!-- Modal Details Trigger -->
+                  <button
+                    data-project-id="maison"
+                    class="modal-trigger px-5 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black font-semibold text-xs tracking-wider uppercase hover:bg-neutral-800 dark:hover:bg-zinc-200 transition-all shadow-md flex items-center gap-2"
+                  >
+                    <i class="fas fa-info-circle"></i>
+                    <span>View Explanation</span>
+                  </button>
                 </div>
               </div>
 
-              <div class="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-xl font-bold text-black dark:text-white group-hover:underline">
-                      Weather Dashboard
-                    </h3>
-                    <span class="text-xs font-medium text-neutral-500 dark:text-neutral-400">Web App</span>
-                  </div>
-                  <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2 mb-4">
-                    Dashboard cuaca interaktif dengan visualisasi data forecast 7 hari dan search API.
-                  </p>
-                </div>
-
-                <div>
-                  <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-2.5 py-1 text-xs font-semibold rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">JavaScript</span>
-                    <span class="px-2.5 py-1 text-xs font-semibold rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">Vue.js</span>
-                    <span class="px-2.5 py-1 text-xs font-semibold rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">REST API</span>
-                  </div>
-
-                  <div class="flex items-center justify-between pt-4 border-t border-neutral-100 dark:border-neutral-800">
-                    <span class="text-xs font-bold text-black dark:text-white flex items-center gap-1">
-                      <span>Learn Details</span>
-                      <i class="fas fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
-                    </span>
-                    <div class="flex items-center space-x-3">
-                      <a
-                        href="https://ulzzang23.github.io/weatherdashboard/"
-                        target="_blank"
-                        aria-label="Live Demo"
-                        class="text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+              <!-- Right Mockup Frame -->
+              <div class="order-first lg:order-last">
+                <div
+                  data-project-id="maison"
+                  class="cursor-pointer group relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-100 dark:bg-zinc-950 p-2 lg:p-3 border border-neutral-200 dark:border-white/10 shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                >
+                  <div class="relative w-full h-full rounded-xl overflow-hidden">
+                    <img
+                      src="assets/img/projek1.png"
+                      alt="Maison Velouré Boutique"
+                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                    >
+                      <span
+                        class="px-4 py-2 rounded-full bg-white text-black font-bold text-xs shadow-lg flex items-center gap-2"
                       >
-                        <i class="fas fa-external-link-alt text-sm"></i>
-                      </a>
-                      <a
-                        href="https://github.com/ulzzang23/weatherdashboard"
-                        target="_blank"
-                        aria-label="Source Code"
-                        class="text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
-                      >
-                        <i class="fab fa-github text-base"></i>
-                      </a>
+                        <i class="fas fa-search-plus"></i> Open Details
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -823,35 +1115,540 @@
             </div>
           </div>
 
-          <!-- GitHub External Link CTA -->
+          <!-- PROJECT 2: Tech Care Platform (Mockup Left, Card Right - Alternating Layout) -->
+          <div class="mb-24 last:mb-0">
+            <div
+              class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center lg:grid-flow-dense"
+            >
+              <!-- Right Overlapping Glass Card -->
+              <div class="lg:col-start-2 relative z-10">
+                <p
+                  class="text-neutral-500 dark:text-zinc-400 text-sm font-semibold tracking-wider uppercase mb-2"
+                >
+                  Featured Project
+                </p>
+                <h3
+                  class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 dark:text-white mb-6"
+                >
+                  Tech Care – Real-Time Repair Service System
+                </h3>
+
+                <div
+                  class="bg-neutral-100/90 dark:bg-white/5 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-neutral-200 dark:border-white/15 shadow-xl lg:ml-[-15%] mb-6"
+                >
+                  <p class="text-neutral-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    A comprehensive web service portal designed for computer hardware repair centers. Bridges
+                    technicians and customers through real-time repair tracking, live chat consultation powered
+                    by Socket.io, service scheduling, and transparent invoice estimates.
+                  </p>
+
+                  <div class="flex flex-wrap gap-2 mt-4">
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >Vue.js</span
+                    >
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >Vuex</span
+                    >
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >Socket.io</span
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <!-- Live Demo Link -->
+                  <a
+                    href="https://techcare-re80gdxk8-ulzzang23s-projects.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/5 text-neutral-700 dark:text-white hover:border-black dark:hover:border-white transition-all hover:scale-110"
+                    aria-label="Visit project website"
+                  >
+                    <i class="fas fa-external-link-alt text-sm"></i>
+                  </a>
+
+                  <!-- Modal Details Trigger -->
+                  <button
+                    data-project-id="techcare"
+                    class="modal-trigger px-5 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black font-semibold text-xs tracking-wider uppercase hover:bg-neutral-800 dark:hover:bg-zinc-200 transition-all shadow-md flex items-center gap-2"
+                  >
+                    <i class="fas fa-info-circle"></i>
+                    <span>View Explanation</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Left Mockup Frame -->
+              <div class="lg:col-start-1 lg:row-start-1">
+                <div
+                  data-project-id="techcare"
+                  class="cursor-pointer group relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-100 dark:bg-zinc-950 p-2 lg:p-3 border border-neutral-200 dark:border-white/10 shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                >
+                  <div class="relative w-full h-full rounded-xl overflow-hidden">
+                    <img
+                      src="assets/img/projek4.png"
+                      alt="Tech Care Platform"
+                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                    >
+                      <span
+                        class="px-4 py-2 rounded-full bg-white text-black font-bold text-xs shadow-lg flex items-center gap-2"
+                      >
+                        <i class="fas fa-search-plus"></i> Open Details
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 3: Weather Dashboard (Card Left, Mockup Right) -->
+          <div class="mb-24 last:mb-0">
+            <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <!-- Left Overlapping Glass Card -->
+              <div class="relative z-10">
+                <p
+                  class="text-neutral-500 dark:text-zinc-400 text-sm font-semibold tracking-wider uppercase mb-2"
+                >
+                  Featured Project
+                </p>
+                <h3
+                  class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 dark:text-white mb-6"
+                >
+                  Weather Dashboard – Interactive Climate Forecast Hub
+                </h3>
+
+                <div
+                  class="bg-neutral-100/90 dark:bg-white/5 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-neutral-200 dark:border-white/15 shadow-xl lg:w-[calc(100%+15%)] mb-6"
+                >
+                  <p class="text-neutral-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    An intuitive real-time weather analytics application featuring accurate global forecasts,
+                    interactive meteorological temperature trends with Chart.js, humidity, wind velocity, and
+                    location search with automatic geolocation lookup.
+                  </p>
+
+                  <div class="flex flex-wrap gap-2 mt-4">
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >Vue.js</span
+                    >
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >REST API</span
+                    >
+                    <span
+                      class="px-3 py-1 text-xs font-semibold rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/10 text-neutral-800 dark:text-zinc-200"
+                      >Chart.js</span
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <!-- Live Demo Link -->
+                  <a
+                    href="https://ulzzang23.github.io/weatherdashboard/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/5 text-neutral-700 dark:text-white hover:border-black dark:hover:border-white transition-all hover:scale-110"
+                    aria-label="Visit project website"
+                  >
+                    <i class="fas fa-external-link-alt text-sm"></i>
+                  </a>
+
+                  <!-- GitHub Source -->
+                  <a
+                    href="https://github.com/ulzzang23/weatherdashboard"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-300 dark:border-white/20 bg-white dark:bg-white/5 text-neutral-700 dark:text-white hover:border-black dark:hover:border-white transition-all hover:scale-110"
+                    aria-label="GitHub Repository"
+                  >
+                    <i class="fab fa-github text-base"></i>
+                  </a>
+
+                  <!-- Modal Details Trigger -->
+                  <button
+                    data-project-id="weather"
+                    class="modal-trigger px-5 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black font-semibold text-xs tracking-wider uppercase hover:bg-neutral-800 dark:hover:bg-zinc-200 transition-all shadow-md flex items-center gap-2"
+                  >
+                    <i class="fas fa-info-circle"></i>
+                    <span>View Explanation</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right Mockup Frame -->
+              <div class="order-first lg:order-last">
+                <div
+                  data-project-id="weather"
+                  class="cursor-pointer group relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-100 dark:bg-zinc-950 p-2 lg:p-3 border border-neutral-200 dark:border-white/10 shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                >
+                  <div class="relative w-full h-full rounded-xl overflow-hidden">
+                    <img
+                      src="assets/img/projek3.png"
+                      alt="Weather Dashboard"
+                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                    >
+                      <span
+                        class="px-4 py-2 rounded-full bg-white text-black font-bold text-xs shadow-lg flex items-center gap-2"
+                      >
+                        <i class="fas fa-search-plus"></i> Open Details
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Explore GitHub Banner -->
           <div class="mt-16 text-center">
             <a
               href="https://github.com/kaiiooo23"
               target="_blank"
-              class="inline-flex items-center px-8 py-3.5 rounded-full border border-black dark:border-white bg-transparent text-black dark:text-white font-semibold text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300"
+              rel="noopener noreferrer"
+              class="inline-flex items-center px-8 py-3.5 rounded-full border border-neutral-300 dark:border-white/20 bg-neutral-50 dark:bg-white/5 text-neutral-900 dark:text-white font-semibold text-sm hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-105"
             >
               <i class="fab fa-github text-base mr-2.5"></i>
-              <span>Explore All GitHub Repositories</span>
+              <span>Explore All Repositories on GitHub</span>
             </a>
           </div>
         </div>
       </section>
 
-      <!-- Music Section -->
-      <section id="music" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-neutral-50/50 dark:bg-neutral-900/30">
-        <div class="max-w-6xl mx-auto px-6">
-          <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
-              Interests & Inspiration
+      <!-- SKILLS SECTION -->
+      <section
+        id="skills"
+        class="reveal-on-scroll py-24 px-6 border-t border-neutral-200 dark:border-white/10 bg-neutral-50/50 dark:bg-[#09090b]"
+      >
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-16">
+            <p
+              class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-zinc-500 mb-2"
+            >
+              Technical Arsenal
+            </p>
+            <h2
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white tracking-tight"
+            >
+              Skills & Technologies
             </h2>
-            <p class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white">
-              Music & Soundtrack
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Frontend Core -->
+            <div
+              class="p-8 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-white/5 backdrop-blur-md hover:border-black dark:hover:border-white transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-6 shadow-sm"
+              >
+                <i class="fas fa-desktop text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-4">Frontend Core</h3>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >React.js</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >Vue.js</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >JavaScript (ES6+)</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >HTML5 & CSS3</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >TypeScript</span
+                >
+              </div>
+            </div>
+
+            <!-- Styling & Design Systems -->
+            <div
+              class="p-8 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-white/5 backdrop-blur-md hover:border-black dark:hover:border-white transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-6 shadow-sm"
+              >
+                <i class="fas fa-paint-brush text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-4">Styling & UI</h3>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >Tailwind CSS</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >PostCSS</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >Responsive Design</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >Glassmorphism & CSS Grid</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >Figma & Wireframing</span
+                >
+              </div>
+            </div>
+
+            <!-- Ecosystem & Tools -->
+            <div
+              class="p-8 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-white/5 backdrop-blur-md hover:border-black dark:hover:border-white transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-6 shadow-sm"
+              >
+                <i class="fas fa-tools text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-4">
+                Tools & Ecosystem
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >Git & GitHub</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >Vite / Webpack</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >REST APIs</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >Socket.io</span
+                >
+                <span
+                  class="px-3.5 py-1.5 text-xs font-semibold rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-50 dark:bg-white/5 text-neutral-800 dark:text-zinc-200"
+                  >VS Code & DevTools</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VERIFIED CERTIFICATES SECTION -->
+      <section
+        id="certificate"
+        class="reveal-on-scroll py-24 px-6 border-t border-neutral-200 dark:border-white/10 bg-white dark:bg-[#09090b]"
+      >
+        <div class="container mx-auto max-w-6xl">
+          <!-- Section Header -->
+          <div class="text-center mb-16">
+            <p
+              class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-zinc-500 mb-2"
+            >
+              Credentials
+            </p>
+            <h2
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white tracking-tight"
+            >
+              Verified Certificates
+            </h2>
+            <p class="mt-4 text-sm text-neutral-500 dark:text-zinc-500 max-w-md mx-auto">
+              <i class="fas fa-hand-pointer mr-1.5 text-xs"></i>Hover or tap the card to reveal details
             </p>
           </div>
 
+          <!-- Flip Cards Grid -->
+          <div class="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+            <!-- Flip Card 1: Dicoding Academy -->
+            <div class="flip-card group cursor-pointer" onclick="this.classList.toggle('flipped')">
+              <div class="flip-card-inner">
+                <!-- FRONT FACE -->
+                <div
+                  class="flip-card-front flex flex-col items-center justify-center text-center p-8 rounded-2xl border border-neutral-200 dark:border-white/10 bg-gradient-to-br from-neutral-50 to-white dark:from-white/[0.04] dark:to-white/[0.02] backdrop-blur-md shadow-lg"
+                >
+                  <!-- Verified Badge Icon -->
+                  <div
+                    class="w-20 h-20 mb-6 rounded-2xl bg-neutral-900 dark:bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-500"
+                  >
+                    <i class="fas fa-certificate text-3xl text-white dark:text-black"></i>
+                  </div>
+                  <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-1.5">
+                    Dicoding Academy
+                  </h3>
+                  <p class="text-xs font-medium text-neutral-500 dark:text-zinc-500 uppercase tracking-wider mb-4">
+                    Front-End Web Development
+                  </p>
+                  <!-- Verified Badge -->
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20"
+                  >
+                    <i class="fas fa-check-circle"></i> Verified
+                  </span>
+                  <!-- Flip Hint -->
+                  <div class="absolute bottom-4 left-0 right-0 flex justify-center">
+                    <span class="text-[10px] text-neutral-400 dark:text-zinc-600 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <i class="fas fa-sync-alt"></i> Flip
+                    </span>
+                  </div>
+                </div>
+
+                <!-- BACK FACE -->
+                <div
+                  class="flip-card-back flex flex-col rounded-2xl border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.04] backdrop-blur-md shadow-lg overflow-hidden"
+                >
+                  <!-- Certificate Preview Image -->
+                  <div class="relative aspect-[16/10] overflow-hidden border-b border-neutral-200 dark:border-white/10">
+                    <img
+                      src="assets/img/certif.jpg"
+                      alt="Dicoding Certificate"
+                      class="w-full h-full object-cover"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                  </div>
+                  <!-- Details -->
+                  <div class="flex-1 flex flex-col justify-between p-5">
+                    <div>
+                      <h3 class="text-base font-bold text-neutral-900 dark:text-white mb-2">
+                        Dicoding Academy Certificate
+                      </h3>
+                      <p class="text-xs text-neutral-600 dark:text-zinc-400 leading-relaxed">
+                        Official verified certification in Front-End Web Development — competence in modern
+                        DOM manipulation, web components & asynchronous JavaScript.
+                      </p>
+                    </div>
+                    <a
+                      href="assets/Dicoding%20Academy%20Certificate.pdf"
+                      target="_blank"
+                      onclick="event.stopPropagation()"
+                      class="mt-4 inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black text-xs font-bold tracking-wide hover:bg-neutral-800 dark:hover:bg-zinc-200 transition-colors"
+                    >
+                      <i class="fas fa-file-pdf"></i>
+                      <span>View PDF Certificate</span>
+                      <i class="fas fa-external-link-alt text-[9px] ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Flip Card 2: DevCoach AI Agent -->
+            <div class="flip-card group cursor-pointer" onclick="this.classList.toggle('flipped')">
+              <div class="flip-card-inner">
+                <!-- FRONT FACE -->
+                <div
+                  class="flip-card-front flex flex-col items-center justify-center text-center p-8 rounded-2xl border border-neutral-200 dark:border-white/10 bg-gradient-to-br from-neutral-50 to-white dark:from-white/[0.04] dark:to-white/[0.02] backdrop-blur-md shadow-lg"
+                >
+                  <!-- Verified Badge Icon -->
+                  <div
+                    class="w-20 h-20 mb-6 rounded-2xl bg-neutral-900 dark:bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-500"
+                  >
+                    <i class="fas fa-robot text-3xl text-white dark:text-black"></i>
+                  </div>
+                  <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-1.5">
+                    DevCoach AI Agent
+                  </h3>
+                  <p class="text-xs font-medium text-neutral-500 dark:text-zinc-500 uppercase tracking-wider mb-4">
+                    AI Developer Specialization
+                  </p>
+                  <!-- Verified Badge -->
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20"
+                  >
+                    <i class="fas fa-check-circle"></i> Verified
+                  </span>
+                  <!-- Flip Hint -->
+                  <div class="absolute bottom-4 left-0 right-0 flex justify-center">
+                    <span class="text-[10px] text-neutral-400 dark:text-zinc-600 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <i class="fas fa-sync-alt"></i> Flip
+                    </span>
+                  </div>
+                </div>
+
+                <!-- BACK FACE -->
+                <div
+                  class="flip-card-back flex flex-col rounded-2xl border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.04] backdrop-blur-md shadow-lg overflow-hidden"
+                >
+                  <!-- Certificate Preview Image -->
+                  <div class="relative aspect-[16/10] overflow-hidden border-b border-neutral-200 dark:border-white/10">
+                    <img
+                      src="assets/img/certif2.jpg"
+                      alt="DevCoach AI Agent Certificate"
+                      class="w-full h-full object-cover"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                  </div>
+                  <!-- Details -->
+                  <div class="flex-1 flex flex-col justify-between p-5">
+                    <div>
+                      <h3 class="text-base font-bold text-neutral-900 dark:text-white mb-2">
+                        DevCoach AI Agent Specialization
+                      </h3>
+                      <p class="text-xs text-neutral-600 dark:text-zinc-400 leading-relaxed">
+                        Certification verifying practical expertise in AI developer agent integration,
+                        generative workflows & modular web tool development.
+                      </p>
+                    </div>
+                    <a
+                      href="assets/DevCoach%20AI%20Agent.pdf"
+                      target="_blank"
+                      onclick="event.stopPropagation()"
+                      class="mt-4 inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black text-xs font-bold tracking-wide hover:bg-neutral-800 dark:hover:bg-zinc-200 transition-colors"
+                    >
+                      <i class="fas fa-file-pdf"></i>
+                      <span>View PDF Certificate</span>
+                      <i class="fas fa-external-link-alt text-[9px] ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- MUSIC & SOUNDTRACK SECTION -->
+      <section
+        id="music"
+        class="reveal-on-scroll py-24 px-6 border-t border-neutral-200 dark:border-white/10 bg-neutral-50/50 dark:bg-[#09090b]"
+      >
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-16">
+            <p
+              class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-zinc-500 mb-2"
+            >
+              Inspiration & Beats
+            </p>
+            <h2
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white tracking-tight"
+            >
+              Music & Soundtrack
+            </h2>
+          </div>
+
           <div class="grid md:grid-cols-2 gap-8">
-            <!-- Spotify Embed 1 -->
-            <div class="p-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm">
+            <div
+              class="p-4 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-white/5 backdrop-blur-md shadow-sm"
+            >
               <iframe
                 style="border-radius: 12px"
                 src="https://open.spotify.com/embed/track/2nMeu6UenVvwUktBCpLMK9?utm_source=generator&si=177c10b85d324210"
@@ -864,8 +1661,9 @@
               ></iframe>
             </div>
 
-            <!-- Spotify Embed 2 -->
-            <div class="p-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm">
+            <div
+              class="p-4 rounded-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-white/5 backdrop-blur-md shadow-sm"
+            >
               <iframe
                 style="border-radius: 12px"
                 src="https://open.spotify.com/embed/track/6gkbtMtioHgtyGjrMel6ei?utm_source=generator&si=fe1ff36b0538418d"
@@ -881,109 +1679,149 @@
         </div>
       </section>
 
-      <!-- Contact Section -->
-      <section id="contact" class="reveal-on-scroll py-28 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950">
-        <div class="max-w-5xl mx-auto px-6">
-          <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-xs uppercase tracking-widest font-extrabold text-neutral-400 dark:text-neutral-500 mb-3">
-              Get In Touch
+      <!-- CONTACT & FOOTER SECTION (Adopted Minimalist Contact Style with Direct Mail & Frosted Socials) -->
+      <section
+        id="contact"
+        class="reveal-on-scroll py-24 px-6 border-t border-neutral-200 dark:border-white/10 bg-white dark:bg-[#09090b]"
+      >
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center mb-16">
+            <h2
+              class="text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-5 tracking-tight"
+            >
+              Contact
             </h2>
-            <p class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white">
-              Let's Collaborate & Build Together
+            <p class="text-base sm:text-lg text-neutral-600 dark:text-zinc-400 max-w-2xl mx-auto mb-6">
+              I'm currently looking to join a forward-thinking cross-functional team, or have an exciting
+              project in mind? Let's connect.
             </p>
+            <a
+              href="mailto:ariefakbar2006@gmail.com"
+              class="text-lg sm:text-xl font-bold text-neutral-900 dark:text-white hover:text-neutral-600 dark:hover:text-zinc-300 underline decoration-zinc-400 dark:decoration-zinc-600 underline-offset-8 transition-colors"
+            >
+              ariefakbar2006@gmail.com
+            </a>
           </div>
 
-          <div class="grid md:grid-cols-5 gap-8 items-start">
-            <!-- Contact Info Sidebar (2 cols) -->
-            <div class="md:col-span-2 space-y-6">
-              <div class="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50">
-                <div class="w-10 h-10 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-4">
-                  <i class="fas fa-envelope text-base"></i>
-                </div>
-                <h3 class="font-bold text-black dark:text-white mb-1">Direct Email</h3>
-                <a href="mailto:ariefakbar2006@gmail.com" class="text-sm font-semibold text-neutral-600 dark:text-neutral-300 hover:underline break-all">ariefakbar2006@gmail.com</a>
-              </div>
+          <!-- Frosted Social Circular Buttons (Reference Style) -->
+          <div class="flex justify-center gap-5 mb-16">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-white/5 hover:bg-neutral-200 dark:hover:bg-white/15 border border-neutral-300 dark:border-white/20 hover:border-black dark:hover:border-white transition-all hover:scale-110 shadow-sm"
+              aria-label="GitHub"
+              href="https://github.com/kaiiooo23"
+            >
+              <i class="fab fa-github text-lg text-neutral-800 dark:text-white"></i>
+            </a>
 
-              <div class="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50">
-                <div class="w-10 h-10 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-4">
-                  <i class="fas fa-location-dot text-base"></i>
-                </div>
-                <h3 class="font-bold text-black dark:text-white mb-1">Location</h3>
-                <p class="text-sm text-neutral-600 dark:text-neutral-400">Indonesia • Open to Remote & On-site</p>
-              </div>
-            </div>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-white/5 hover:bg-neutral-200 dark:hover:bg-white/15 border border-neutral-300 dark:border-white/20 hover:border-black dark:hover:border-white transition-all hover:scale-110 shadow-sm"
+              aria-label="LinkedIn"
+              href="https://www.linkedin.com/in/arief-akbar/"
+            >
+              <i class="fab fa-linkedin-in text-lg text-neutral-800 dark:text-white"></i>
+            </a>
 
-            <!-- Contact Form (3 cols) -->
-            <div class="md:col-span-3 p-8 rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50">
-              <form id="contactForm" class="space-y-5" novalidate>
-                <div>
-                  <label for="contactName" class="block text-xs font-bold uppercase tracking-wider text-neutral-600 dark:text-neutral-400 mb-2">Your Name</label>
-                  <input
-                    type="text"
-                    id="contactName"
-                    placeholder="e.g. Jane Doe"
-                    class="w-full px-4 py-3 rounded-xl border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-black dark:text-white placeholder-neutral-400 focus:outline-none focus:border-black dark:focus:border-white transition-colors text-sm"
-                    required
-                  />
-                  <p id="nameError" class="hidden text-xs text-red-500 mt-1">Please enter your name.</p>
-                </div>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-white/5 hover:bg-neutral-200 dark:hover:bg-white/15 border border-neutral-300 dark:border-white/20 hover:border-black dark:hover:border-white transition-all hover:scale-110 shadow-sm"
+              aria-label="Twitter / X"
+              href="https://x.com/chillwhithkaii"
+            >
+              <i class="fab fa-twitter text-lg text-neutral-800 dark:text-white"></i>
+            </a>
+          </div>
 
-                <div>
-                  <label for="contactEmail" class="block text-xs font-bold uppercase tracking-wider text-neutral-600 dark:text-neutral-400 mb-2">Your Email</label>
-                  <input
-                    type="email"
-                    id="contactEmail"
-                    placeholder="e.g. jane@example.com"
-                    class="w-full px-4 py-3 rounded-xl border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-black dark:text-white placeholder-neutral-400 focus:outline-none focus:border-black dark:focus:border-white transition-colors text-sm"
-                    required
-                  />
-                  <p id="emailError" class="hidden text-xs text-red-500 mt-1">Please enter a valid email address.</p>
-                </div>
-
-                <div>
-                  <label for="contactMessage" class="block text-xs font-bold uppercase tracking-wider text-neutral-600 dark:text-neutral-400 mb-2">Message</label>
-                  <textarea
-                    id="contactMessage"
-                    rows="4"
-                    placeholder="How can I help you?"
-                    class="w-full px-4 py-3 rounded-xl border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-black dark:text-white placeholder-neutral-400 focus:outline-none focus:border-black dark:focus:border-white transition-colors text-sm resize-none"
-                    required
-                  ></textarea>
-                  <p id="messageError" class="hidden text-xs text-red-500 mt-1">Please write a message.</p>
-                </div>
-
-                <button
-                  type="submit"
-                  id="submitContactBtn"
-                  class="w-full py-3.5 px-6 rounded-full bg-black text-white dark:bg-white dark:text-black font-bold text-sm hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all duration-300 shadow-md flex items-center justify-center gap-2"
+          <!-- Contact Direct Message Form -->
+          <div
+            class="max-w-xl mx-auto p-8 rounded-3xl border border-neutral-200 dark:border-white/10 bg-neutral-50/80 dark:bg-white/5 backdrop-blur-md shadow-xl"
+          >
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-6 text-center">
+              Send a Direct Message
+            </h3>
+            <form id="contactForm" class="space-y-5" novalidate>
+              <div>
+                <label
+                  for="contactName"
+                  class="block text-xs font-bold uppercase tracking-wider text-neutral-600 dark:text-zinc-400 mb-2"
+                  >Your Name</label
                 >
-                  <i class="fas fa-paper-plane text-xs"></i>
-                  <span>Send Message</span>
-                </button>
-              </form>
-            </div>
+                <input
+                  type="text"
+                  id="contactName"
+                  placeholder="e.g. John Doe"
+                  class="w-full px-4 py-3 rounded-xl border border-neutral-300 dark:border-white/15 bg-white dark:bg-white/5 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-zinc-500 focus:outline-none focus:border-black dark:focus:border-white transition-colors text-sm"
+                  required
+                />
+                <p id="nameError" class="hidden text-xs text-red-500 mt-1">Please enter your name.</p>
+              </div>
+
+              <div>
+                <label
+                  for="contactEmail"
+                  class="block text-xs font-bold uppercase tracking-wider text-neutral-600 dark:text-zinc-400 mb-2"
+                  >Your Email</label
+                >
+                <input
+                  type="email"
+                  id="contactEmail"
+                  placeholder="e.g. john@example.com"
+                  class="w-full px-4 py-3 rounded-xl border border-neutral-300 dark:border-white/15 bg-white dark:bg-white/5 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-zinc-500 focus:outline-none focus:border-black dark:focus:border-white transition-colors text-sm"
+                  required
+                />
+                <p id="emailError" class="hidden text-xs text-red-500 mt-1">
+                  Please enter a valid email address.
+                </p>
+              </div>
+
+              <div>
+                <label
+                  for="contactMessage"
+                  class="block text-xs font-bold uppercase tracking-wider text-neutral-600 dark:text-zinc-400 mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="contactMessage"
+                  rows="4"
+                  placeholder="Write your project details or message..."
+                  class="w-full px-4 py-3 rounded-xl border border-neutral-300 dark:border-white/15 bg-white dark:bg-white/5 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-zinc-500 focus:outline-none focus:border-black dark:focus:border-white transition-colors text-sm resize-none"
+                  required
+                ></textarea>
+                <p id="messageError" class="hidden text-xs text-red-500 mt-1">
+                  Please write a message.
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                id="submitContactBtn"
+                class="w-full py-3.5 px-6 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black font-bold text-sm hover:bg-neutral-800 dark:hover:bg-zinc-200 transition-all duration-300 shadow-md flex items-center justify-center gap-2"
+              >
+                <i class="fas fa-paper-plane text-xs"></i>
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Bottom Copyright -->
+          <div class="text-center mt-20 pt-8 border-t border-neutral-200 dark:border-white/10">
+            <p class="text-neutral-500 dark:text-zinc-500 text-sm">
+              &copy; <span id="currentYear">2026</span> Arief Mochammad Akbar. All rights reserved.
+            </p>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-neutral-200 dark:border-neutral-900 bg-white dark:bg-neutral-950 text-neutral-600 dark:text-neutral-400">
-      <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p class="text-sm">
-          &copy; <span id="currentYear">2026</span> Arief Mochammad Akbar. All rights reserved.
-        </p>
-        <p class="text-xs text-neutral-400 dark:text-neutral-500">
-          Designed with clean monochrome aesthetics & Tailwind CSS.
-        </p>
-      </div>
-    </footer>
-
     <!-- Back to Top Floating Button -->
     <button
       id="backToTopBtn"
       aria-label="Back to Top"
-      class="fixed bottom-8 right-8 z-40 p-3.5 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white/90 dark:bg-neutral-900/90 text-black dark:text-white shadow-2xl opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:scale-110"
+      class="fixed bottom-8 right-8 z-40 p-3.5 rounded-full border border-neutral-300 dark:border-white/20 bg-white/90 dark:bg-zinc-900/90 text-neutral-900 dark:text-white shadow-2xl opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:scale-110"
     >
       <i class="fas fa-arrow-up text-sm"></i>
     </button>
@@ -991,18 +1829,23 @@
     <!-- Toast Notification Popup -->
     <div
       id="toastNotification"
-      class="fixed bottom-8 left-8 z-50 px-5 py-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-black dark:text-white shadow-2xl flex items-center gap-3.5 opacity-0 pointer-events-none translate-y-4 transition-all duration-300 max-w-md"
+      class="fixed bottom-8 left-8 z-50 px-5 py-4 rounded-2xl border border-neutral-200 dark:border-white/15 bg-white dark:bg-zinc-900 text-neutral-900 dark:text-white shadow-2xl flex items-center gap-3.5 opacity-0 pointer-events-none translate-y-4 transition-all duration-300 max-w-md"
     >
-      <div id="toastIcon" class="w-8 h-8 rounded-full bg-black text-white dark:bg-white dark:text-black flex items-center justify-center flex-shrink-0 text-xs">
+      <div
+        id="toastIcon"
+        class="w-8 h-8 rounded-full bg-black text-white dark:bg-white dark:text-black flex items-center justify-center flex-shrink-0 text-xs"
+      >
         <i class="fas fa-check"></i>
       </div>
       <div>
         <p id="toastTitle" class="font-bold text-sm">Message Sent!</p>
-        <p id="toastMessage" class="text-xs text-neutral-500 dark:text-neutral-400">Thank you for reaching out. I will get back to you soon.</p>
+        <p id="toastMessage" class="text-xs text-neutral-500 dark:text-zinc-400">
+          Thank you for reaching out. I will get back to you soon.
+        </p>
       </div>
     </div>
 
-    <!-- INTERACTIVE PROJECT EXPLANATION POP-UP MODAL -->
+    <!-- INTERACTIVE PROJECT EXPLANATION POP-UP MODAL (Completely Preserved for main.js) -->
     <div
       id="projectModal"
       class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4"
@@ -1010,26 +1853,35 @@
       <!-- Backdrop Overlay -->
       <div
         id="modalBackdrop"
-        class="fixed inset-0 bg-black/70 backdrop-blur-md opacity-0 transition-opacity duration-300"
+        class="fixed inset-0 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300"
       ></div>
 
       <!-- Modal Container Box -->
       <div
         id="modalContainer"
-        class="relative bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto z-10 opacity-0 scale-95 translate-y-4 transition-all duration-300 flex flex-col"
+        class="relative bg-white dark:bg-[#121215] border border-neutral-200 dark:border-white/15 rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto z-10 opacity-0 scale-95 translate-y-4 transition-all duration-300 flex flex-col"
       >
         <!-- Modal Sticky Top Bar -->
         <div
-          class="sticky top-0 z-20 px-6 py-4 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between"
+          class="sticky top-0 z-20 px-6 py-4 bg-white/90 dark:bg-[#121215]/90 backdrop-blur-md border-b border-neutral-200 dark:border-white/10 flex items-center justify-between"
         >
           <div>
-            <span id="modalCategory" class="text-xs font-extrabold uppercase tracking-widest text-neutral-400 dark:text-neutral-500">Web Application</span>
-            <h3 id="modalTitle" class="text-xl font-extrabold text-black dark:text-white tracking-tight">Project Title</h3>
+            <span
+              id="modalCategory"
+              class="text-xs font-extrabold uppercase tracking-widest text-neutral-400 dark:text-zinc-500"
+              >Web Application</span
+            >
+            <h3
+              id="modalTitle"
+              class="text-xl font-extrabold text-neutral-900 dark:text-white tracking-tight"
+            >
+              Project Title
+            </h3>
           </div>
           <button
             id="closeModalBtn"
             aria-label="Close Modal"
-            class="p-2 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+            class="p-2 rounded-full border border-neutral-200 dark:border-white/15 bg-neutral-100 dark:bg-white/10 text-neutral-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
           >
             <i class="fas fa-times text-base"></i>
           </button>
@@ -1038,26 +1890,40 @@
         <!-- Modal Body Content -->
         <div class="p-6 md:p-8 space-y-6">
           <!-- Image Banner -->
-          <div class="overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800">
+          <div
+            class="overflow-hidden rounded-2xl border border-neutral-200 dark:border-white/10 bg-neutral-100 dark:bg-zinc-900"
+          >
             <img id="modalImage" src="" alt="Project Image" class="w-full h-64 md:h-80 object-cover" />
           </div>
 
           <!-- Subtitle / Tagline -->
-          <p id="modalSubtitle" class="text-lg font-semibold text-black dark:text-white">
+          <p id="modalSubtitle" class="text-lg font-semibold text-neutral-900 dark:text-white">
             Project Subtitle Explanation
           </p>
 
           <!-- Detailed Paragraph Description -->
           <div class="space-y-3">
-            <h4 class="text-xs uppercase font-extrabold tracking-widest text-neutral-400 dark:text-neutral-500">Overview</h4>
-            <p id="modalDescription" class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
-              Detailed breakdown of the project goals, user problem solved, architecture design, and features implemented.
+            <h4
+              class="text-xs uppercase font-extrabold tracking-widest text-neutral-400 dark:text-zinc-500"
+            >
+              Overview
+            </h4>
+            <p
+              id="modalDescription"
+              class="text-sm text-neutral-600 dark:text-zinc-300 leading-relaxed"
+            >
+              Detailed breakdown of the project goals, user problem solved, architecture design, and
+              features implemented.
             </p>
           </div>
 
           <!-- Key Highlights / Features -->
           <div class="space-y-3">
-            <h4 class="text-xs uppercase font-extrabold tracking-widest text-neutral-400 dark:text-neutral-500">Key Features & Engineering Highlights</h4>
+            <h4
+              class="text-xs uppercase font-extrabold tracking-widest text-neutral-400 dark:text-zinc-500"
+            >
+              Key Features & Engineering Highlights
+            </h4>
             <ul id="modalFeatures" class="space-y-2">
               <!-- Dynamically Populated -->
             </ul>
@@ -1065,7 +1931,11 @@
 
           <!-- Technologies Used -->
           <div class="space-y-3">
-            <h4 class="text-xs uppercase font-extrabold tracking-widest text-neutral-400 dark:text-neutral-500">Technology Stack</h4>
+            <h4
+              class="text-xs uppercase font-extrabold tracking-widest text-neutral-400 dark:text-zinc-500"
+            >
+              Technology Stack
+            </h4>
             <div id="modalTech" class="flex flex-wrap gap-2">
               <!-- Dynamically Populated Pills -->
             </div>
@@ -1074,14 +1944,14 @@
 
         <!-- Modal Footer Actions -->
         <div
-          class="sticky bottom-0 z-20 px-6 py-4 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-4"
+          class="sticky bottom-0 z-20 px-6 py-4 bg-white/90 dark:bg-[#121215]/90 backdrop-blur-md border-t border-neutral-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-4"
         >
           <div class="flex items-center gap-3">
             <a
               id="modalDemoBtn"
               href="#"
               target="_blank"
-              class="inline-flex items-center px-6 py-2.5 rounded-full bg-black text-white dark:bg-white dark:text-black font-bold text-xs hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all duration-300 shadow-md"
+              class="inline-flex items-center px-6 py-2.5 rounded-full bg-black text-white dark:bg-white dark:text-black font-bold text-xs hover:bg-neutral-800 dark:hover:bg-zinc-200 transition-all duration-300 shadow-md"
             >
               <span>Launch Live Demo</span>
               <i class="fas fa-external-link-alt ml-2 text-[10px]"></i>
@@ -1091,7 +1961,7 @@
               id="modalGithubBtn"
               href="#"
               target="_blank"
-              class="inline-flex items-center px-6 py-2.5 rounded-full border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 font-bold text-xs hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all duration-300"
+              class="inline-flex items-center px-6 py-2.5 rounded-full border border-neutral-300 dark:border-white/20 text-neutral-900 dark:text-white font-bold text-xs hover:bg-neutral-100 dark:hover:bg-white/10 transition-all duration-300"
             >
               <i class="fab fa-github mr-2 text-sm"></i>
               <span>View Source Code</span>
@@ -1101,7 +1971,7 @@
       </div>
     </div>
 
-    <!-- Script File -->
-    <script src="../assets/js/main.js"></script>
+    <!-- Main JavaScript Logic File -->
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
