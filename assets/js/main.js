@@ -1,466 +1,595 @@
-// Personal Portfolio Script - Modern Black & White Theme & Project Modal
+/**
+ * Arief Mochammad Akbar — Modern Portfolio & AI Assistant Engine
+ * Pure modular JavaScript with zero heavy runtime overhead.
+ */
 
-// Project Details Data Dictionary for Interactive Pop-up Modal
-const projectsData = {
-  maison: {
-    title: "Maison Velouré Boutique",
-    subtitle: "Modern Luxury E-Commerce Platform",
-    image: "assets/img/projek1.png",
-    category: "Web Application",
-    description: "Maison Velouré is a full-featured e-commerce fashion boutique platform designed to deliver an elevated, luxurious shopping experience. Built with performance and mobile responsiveness at its core, the platform allows users to browse catalog collections, filter products dynamically, manage interactive shopping cart items, and simulate seamless checkout workflows.",
-    features: [
-      "Dynamic catalog filtering and real-time live product search",
-      "Interactive cart state management with persistent local storage",
-      "Sleek product gallery view with zoom and responsive grid layout",
-      "Custom responsive payment checkout UI workflow"
+// Comprehensive Project Case Study Knowledge Base
+const projectModalData = {
+    maison: {
+        title: "Maison Velouré Boutique",
+        subtitle: "Modern Luxury E-Commerce Platform",
+        category: "Web Application",
+        image: "assets/img/projek1.png",
+        tech: ["React.js", "Tailwind CSS", "JavaScript (ES6+)", "HTML5"],
+        overview: "Maison Velouré is a modern e-commerce fashion boutique platform engineered to deliver an elevated shopping experience. Engineered with mobile-first responsiveness, it features instant dynamic catalog filtering, reactive shopping cart persistence via localStorage, and a frictionless multi-step checkout workflow.",
+        highlights: [
+            "Constructed modular reactive components with clean separation of concerns.",
+            "Implemented instant client-side catalog filtering and live search without UI latency.",
+            "Integrated persistent local state management for shopping cart sessions.",
+            "Optimized images and CSS layout to ensure minimal Cumulative Layout Shift (CLS)."
+        ],
+        demoUrl: "https://ulzzang23.github.io/maisonveloure/",
+        githubUrl: "https://github.com/ulzzang23/maisonveloure"
+    },
+    techcare: {
+        title: "Tech Care Repair Portal",
+        subtitle: "Real-Time Hardware Service Tracking System",
+        category: "Web Application",
+        image: "assets/img/projek4.png",
+        tech: ["Vue.js", "Vuex", "Socket.io", "Node.js", "Tailwind CSS"],
+        overview: "Tech Care is a comprehensive web service portal engineered for computer hardware repair facilities. It bridges communication between certified technicians and customers through live WebSocket diagnostic updates, consultation chat, and transparent invoice estimators.",
+        highlights: [
+            "Engineered bidirectional real-time communication pipeline utilizing Socket.io.",
+            "Architected centralized state management with Vuex to handle multi-step repair workflows.",
+            "Built interactive service scheduling calendar and hardware diagnostic estimators.",
+            "Developed responsive technician administrative dashboards with status badge tracking."
+        ],
+        demoUrl: "https://techcare-re80gdxk8-ulzzang23s-projects.vercel.app/",
+        githubUrl: "https://github.com/kaiiooo23"
+    },
+    weather: {
+        title: "Weather & Atmospheric Hub",
+        subtitle: "Interactive Real-Time Meteorological Dashboard",
+        category: "Web Application",
+        image: "assets/img/projek3.png",
+        tech: ["Vue.js", "Chart.js", "OpenWeather REST API", "Tailwind CSS"],
+        overview: "An intuitive real-time weather analytics application featuring global meteorological forecasting, interactive temperature trend charts via Chart.js, atmospheric humidity & wind metrics, and automatic browser geolocation lookup.",
+        highlights: [
+            "Asynchronous REST API consumption with graceful error boundaries and loading states.",
+            "Dynamic canvas rendering using Chart.js to visualize 7-day temperature trends.",
+            "HTML5 Geolocation API integration with automatic coordinates fallback.",
+            "Fluid responsive grid layout adapting cleanly across desktop and mobile displays."
+        ],
+        demoUrl: "https://ulzzang23.github.io/weatherdashboard/",
+        githubUrl: "https://github.com/ulzzang23/weatherdashboard"
+    },
+    realestate: {
+        title: "Real Estate Housing Price Regression",
+        subtitle: "Supervised Machine Learning Valuation Pipeline",
+        category: "Machine Learning & AI",
+        image: null,
+        tech: ["Python", "Scikit-Learn", "Pandas", "NumPy", "Jupyter"],
+        overview: "A supervised machine learning regression pipeline built to predict residential real estate market values based on historical property features, spatial variables, structural square footage, and local economic indicators.",
+        highlights: [
+            "Conducted comprehensive Exploratory Data Analysis (EDA) and feature correlation matrix.",
+            "Engineered feature scaling and categorical variable encoding pipelines.",
+            "Trained and cross-validated Linear, Ridge, and Random Forest regression models.",
+            "Evaluated predictive performance using Root Mean Squared Error (RMSE) and R-squared metrics."
+        ],
+        demoUrl: null,
+        githubUrl: "https://github.com/kaiiooo23"
+    }
+};
+
+// Local Knowledge Base for Offline / Immediate Assistant Responses
+const ariefKnowledgeBase = {
+    name: "Arief Mochammad Akbar",
+    title: "Front-End Developer & AI Engineering Practitioner",
+    education: {
+        university: "Universitas Pamulang (UNPAM) — Bachelor of Computer Science / Informatics Engineering (S1, 2026—Present)",
+        vocational: "SMK Bina Putera Nusantara Tasikmalaya — Sistem Informasi, Jaringan, dan Aplikasi (SIJA, 4-Year Technical Program, 2022—2026)"
+    },
+    certifications: [
+        "Dicoding Academy: Front-End Web Development (Google Authorized Partner)",
+        "DevCoach AI: AI Agent Developer Specialization"
     ],
-    tech: ["React", "Tailwind CSS", "JavaScript", "HTML5", "CSS3"],
-    demoUrl: "https://ulzzang23.github.io/maisonveloure/",
-    githubUrl: "https://github.com/ulzzang23/maisonveloure"
-  },
-  techcare: {
-    title: "Tech Care Platform",
-    subtitle: "Real-Time PC & Laptop Repair Service System",
-    image: "assets/img/projek4.png",
-    category: "Web Application",
-    description: "Tech Care is a comprehensive web service portal designed for computer hardware repair shops. It bridges the communication gap between certified repair technicians and customers through real-time repair tracking, live chat consultation via WebSockets, service scheduling, and transparent invoice estimates.",
-    features: [
-      "Real-time ticket tracking system with live status updates",
-      "Interactive technician-customer chat powered by Socket.io",
-      "Service scheduling calendar & hardware diagnostic estimator",
-      "Vuex centralized state management for seamless user session flows"
-    ],
-    tech: ["Vue.js", "Vuex", "Socket.io", "Node.js", "Tailwind CSS"],
-    demoUrl: "https://techcare-re80gdxk8-ulzzang23s-projects.vercel.app/",
-    githubUrl: "#"
-  },
-  weather: {
-    title: "Weather Dashboard",
-    subtitle: "Interactive Climate Analytics & Forecast Hub",
-    image: "assets/img/projek3.png",
-    category: "Web Application",
-    description: "An intuitive real-time weather analytics application featuring accurate global forecasts, interactive temperature charts, detailed atmospheric metrics (humidity, wind speed, UV index, air quality), and location search with automated geolocation lookup.",
-    features: [
-      "7-day extended weather forecast with daily condition breakdowns",
-      "Interactive meteorological data charts and temperature trends",
-      "Automatic geolocation detection & worldwide city search",
-      "Asynchronous REST API integration with real-time error handling"
-    ],
-    tech: ["JavaScript", "Vue.js", "REST API", "Chart.js", "Tailwind CSS"],
-    demoUrl: "https://ulzzang23.github.io/weatherdashboard/",
-    githubUrl: "https://github.com/ulzzang23/weatherdashboard"
-  }
+    skills: {
+        frontend: ["React.js", "Vue.js", "JavaScript (ES6+)", "TypeScript", "Tailwind CSS", "HTML5/CSS3", "Vite", "Webpack"],
+        ai: ["Python", "Pandas", "Scikit-Learn", "LangChain", "Gemini API", "Prompt Engineering"],
+        backend: ["PHP", "Laravel", "MySQL", "Node.js", "Socket.io", "Git / GitHub Workflows", "Linux & Networking"]
+    },
+    contact: {
+        email: "ariefakbar2006@gmail.com",
+        github: "https://github.com/kaiiooo23",
+        linkedin: "https://www.linkedin.com/in/arief-akbar/"
+    }
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Theme (Dark/Light) Management
-  const html = document.documentElement;
-  const darkModeToggle = document.getElementById("darkModeToggle");
+    // 1. Theme (Dark / Light) Management
+    initTheme();
 
-  const savedTheme = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    // 2. Mobile Navigation Toggle
+    initMobileMenu();
 
-  if (savedTheme) {
-    html.classList.toggle("dark", savedTheme === "dark");
-  } else {
-    html.classList.toggle("dark", prefersDark);
-  }
+    // 3. Project Filter Buttons
+    initProjectFilters();
 
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener("click", () => {
-      const isDark = html.classList.toggle("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-  }
+    // 4. Keyboard Shortcuts (⌘K / Ctrl+K and Escape)
+    initKeyboardShortcuts();
 
-  // Mobile Menu Toggle
-  const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
+    // 5. Dynamic Footer Year
+    const footerYear = document.getElementById("footerYear");
+    if (footerYear) {
+        footerYear.textContent = new Date().getFullYear();
+    }
+});
 
-  if (mobileMenuToggle && mobileMenu) {
-    mobileMenuToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
+// ==========================================
+// THEME MANAGEMENT (Dark / Light Mode)
+// ==========================================
+function initTheme() {
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
+    const themeIcon = document.getElementById("themeIcon");
+    const html = document.documentElement;
 
-    document.querySelectorAll(".mobile-nav-link").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-      });
-    });
-  }
+    const savedTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  // Experience & Education Tab Switcher
-  const tabEducationBtn = document.getElementById("tabEducationBtn");
-  const tabWorkBtn = document.getElementById("tabWorkBtn");
-  const panelEducation = document.getElementById("panelEducation");
-  const panelWork = document.getElementById("panelWork");
+    if (savedTheme === "light") {
+        html.classList.remove("dark");
+        if (themeIcon) themeIcon.className = "fa-solid fa-sun text-xs text-amber-500";
+    } else if (savedTheme === "dark" || systemPrefersDark) {
+        html.classList.add("dark");
+        if (themeIcon) themeIcon.className = "fa-solid fa-moon text-xs";
+    }
 
-  if (tabEducationBtn && tabWorkBtn && panelEducation && panelWork) {
-    tabEducationBtn.addEventListener("click", () => {
-      tabEducationBtn.classList.add("bg-neutral-900", "text-white", "dark:bg-white", "dark:text-black", "shadow-md");
-      tabEducationBtn.classList.remove("text-neutral-600", "dark:text-zinc-400");
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", () => {
+            const isDark = html.classList.toggle("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
 
-      tabWorkBtn.classList.remove("bg-neutral-900", "text-white", "dark:bg-white", "dark:text-black", "shadow-md");
-      tabWorkBtn.classList.add("text-neutral-600", "dark:text-zinc-400");
-
-      panelEducation.classList.remove("hidden");
-      panelWork.classList.add("hidden");
-    });
-
-    tabWorkBtn.addEventListener("click", () => {
-      tabWorkBtn.classList.add("bg-neutral-900", "text-white", "dark:bg-white", "dark:text-black", "shadow-md");
-      tabWorkBtn.classList.remove("text-neutral-600", "dark:text-zinc-400");
-
-      tabEducationBtn.classList.remove("bg-neutral-900", "text-white", "dark:bg-white", "dark:text-black", "shadow-md");
-      tabEducationBtn.classList.add("text-neutral-600", "dark:text-zinc-400");
-
-      panelWork.classList.remove("hidden");
-      panelEducation.classList.add("hidden");
-    });
-  }
-
-  // Smooth Scroll offset for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      const targetId = this.getAttribute("href");
-      if (targetId === "#") return;
-      const targetElement = document.querySelector(targetId);
-
-      if (targetElement) {
-        e.preventDefault();
-        const headerOffset = 90;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
+            if (themeIcon) {
+                themeIcon.className = isDark ? "fa-solid fa-moon text-xs" : "fa-solid fa-sun text-xs text-amber-500";
+            }
         });
-      }
-    });
-  });
+    }
+}
 
-  // Floating Dock Active Link Scroll Spy
-  const sections = document.querySelectorAll("section[id]");
-  const dockLinks = document.querySelectorAll(".nav-dock-link");
+// ==========================================
+// MOBILE MENU NAVIGATION
+// ==========================================
+function initMobileMenu() {
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
-  function updateActiveDock() {
-    const scrollPosition = window.pageYOffset + 160;
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute("id");
-
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        dockLinks.forEach((link) => {
-          if (link.getAttribute("href") === `#${sectionId}`) {
-            link.classList.add("bg-white", "text-black", "dark:bg-white/20", "dark:text-white", "shadow-sm");
-            link.classList.remove("text-neutral-600", "dark:text-zinc-400");
-          } else {
-            link.classList.remove("bg-white", "text-black", "dark:bg-white/20", "dark:text-white", "shadow-sm");
-            link.classList.add("text-neutral-600", "dark:text-zinc-400");
-          }
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
         });
-      }
+
+        mobileNavLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+            });
+        });
+    }
+}
+
+// ==========================================
+// PROJECT FILTER BUTTONS
+// ==========================================
+function initProjectFilters() {
+    const filterBtns = document.querySelectorAll(".project-filter-btn");
+    const projectItems = document.querySelectorAll(".project-item");
+
+    filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            filterBtns.forEach((b) => {
+                b.classList.remove("bg-white", "dark:bg-zinc-800", "text-zinc-900", "dark:text-zinc-100", "font-semibold", "shadow-sm");
+                b.classList.add("text-zinc-600", "dark:text-zinc-400");
+            });
+
+            btn.classList.add("bg-white", "dark:bg-zinc-800", "text-zinc-900", "dark:text-zinc-100", "font-semibold", "shadow-sm");
+            btn.classList.remove("text-zinc-600", "dark:text-zinc-400");
+
+            const filter = btn.getAttribute("data-filter");
+            projectItems.forEach((item) => {
+                const category = item.getAttribute("data-category");
+                if (filter === "all" || category === filter) {
+                    item.style.display = "flex";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
     });
-  }
+}
 
-  window.addEventListener("scroll", updateActiveDock, { passive: true });
-  updateActiveDock();
+// ==========================================
+// KEYBOARD SHORTCUTS (⌘K / Ctrl+K and Escape)
+// ==========================================
+function initKeyboardShortcuts() {
+    document.addEventListener("keydown", (e) => {
+        // Toggle AI drawer with Cmd+K or Ctrl+K
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+            e.preventDefault();
+            toggleAiDrawer();
+        }
 
-  // Project Modal Logic
-  const modal = document.getElementById("projectModal");
-  const modalBackdrop = document.getElementById("modalBackdrop");
-  const modalContainer = document.getElementById("modalContainer");
-  const closeModalBtn = document.getElementById("closeModalBtn");
-
-  const modalTitle = document.getElementById("modalTitle");
-  const modalSubtitle = document.getElementById("modalSubtitle");
-  const modalImage = document.getElementById("modalImage");
-  const modalCategory = document.getElementById("modalCategory");
-  const modalDescription = document.getElementById("modalDescription");
-  const modalFeatures = document.getElementById("modalFeatures");
-  const modalTech = document.getElementById("modalTech");
-  const modalDemoBtn = document.getElementById("modalDemoBtn");
-  const modalGithubBtn = document.getElementById("modalGithubBtn");
-
-  function openProjectModal(projectId) {
-    const data = projectsData[projectId];
-    if (!data || !modal) return;
-
-    if (modalTitle) modalTitle.textContent = data.title;
-    if (modalSubtitle) modalSubtitle.textContent = data.subtitle;
-    if (modalImage) {
-      modalImage.src = data.image;
-      modalImage.alt = data.title;
-    }
-    if (modalCategory) modalCategory.textContent = data.category;
-    if (modalDescription) modalDescription.textContent = data.description;
-
-    // Populate Features
-    if (modalFeatures) {
-      modalFeatures.innerHTML = data.features
-        .map(
-          (feat) =>
-            `<li class="flex items-start text-sm text-gray-700 dark:text-gray-300"><i class="fas fa-check-circle text-black dark:text-white mr-2.5 mt-0.5 text-xs"></i><span>${feat}</span></li>`
-        )
-        .join("");
-    }
-
-    // Populate Tech Stack Pills
-    if (modalTech) {
-      modalTech.innerHTML = data.tech
-        .map(
-          (t) =>
-            `<span class="px-3 py-1 text-xs font-semibold rounded-full bg-black/5 dark:bg-white/10 text-black dark:text-white border border-black/10 dark:border-white/10">${t}</span>`
-        )
-        .join("");
-    }
-
-    // Links
-    if (modalDemoBtn) {
-      modalDemoBtn.href = data.demoUrl;
-      modalDemoBtn.style.display = data.demoUrl && data.demoUrl !== "#" ? "inline-flex" : "none";
-    }
-    if (modalGithubBtn) {
-      modalGithubBtn.href = data.githubUrl;
-      modalGithubBtn.style.display = data.githubUrl && data.githubUrl !== "#" ? "inline-flex" : "none";
-    }
-
-    // Display modal with smooth animations
-    modal.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
-
-    requestAnimationFrame(() => {
-      if (modalBackdrop) modalBackdrop.classList.remove("opacity-0");
-      if (modalContainer) {
-        modalContainer.classList.remove("opacity-0", "scale-95", "translate-y-4");
-        modalContainer.classList.add("opacity-100", "scale-100", "translate-y-0");
-      }
+        // Close open modals / drawer on Escape
+        if (e.key === "Escape") {
+            closeProjectModal();
+            closeSettingsModal();
+            const drawer = document.getElementById("aiDrawer");
+            if (drawer && !drawer.classList.contains("translate-x-full")) {
+                toggleAiDrawer();
+            }
+        }
     });
-  }
+}
 
-  function closeProjectModal() {
-    if (!modal) return;
+// ==========================================
+// AI ASSISTANT DRAWER CONTROLS
+// ==========================================
+function toggleAiDrawer() {
+    const drawer = document.getElementById("aiDrawer");
+    const overlay = document.getElementById("aiDrawerOverlay");
+    if (!drawer || !overlay) return;
 
-    if (modalBackdrop) modalBackdrop.classList.add("opacity-0");
-    if (modalContainer) {
-      modalContainer.classList.remove("opacity-100", "scale-100", "translate-y-0");
-      modalContainer.classList.add("opacity-0", "scale-95", "translate-y-4");
+    const isClosed = drawer.classList.contains("translate-x-full");
+    if (isClosed) {
+        drawer.classList.remove("translate-x-full");
+        overlay.classList.remove("hidden");
+        setTimeout(() => {
+            const input = document.getElementById("chatInput");
+            if (input) input.focus();
+        }, 300);
+    } else {
+        drawer.classList.add("translate-x-full");
+        overlay.classList.add("hidden");
+    }
+}
+
+function sendQuickPrompt(promptText) {
+    const input = document.getElementById("chatInput");
+    if (input) {
+        input.value = promptText;
+        handleChatSubmit(new Event("submit"));
+    }
+}
+
+async function handleChatSubmit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const input = document.getElementById("chatInput");
+    if (!input) return;
+
+    const message = input.value.trim();
+    if (!message) return;
+
+    appendChatMessage("user", message);
+    input.value = "";
+
+    const botMsgId = appendChatMessage("bot", "Processing query...");
+    const botElement = document.getElementById(botMsgId);
+
+    const apiKey = localStorage.getItem("gemini_api_key");
+
+    if (apiKey) {
+        try {
+            const response = await callGeminiAPI(message, apiKey);
+            if (botElement) botElement.innerText = response;
+        } catch (err) {
+            if (botElement) botElement.innerText = getLocalAiFallback(message);
+        }
+    } else {
+        setTimeout(() => {
+            if (botElement) botElement.innerText = getLocalAiFallback(message);
+        }, 300);
+    }
+}
+
+function appendChatMessage(sender, text) {
+    const container = document.getElementById("chatMessages");
+    if (!container) return "";
+
+    const msgId = "msg-" + Date.now();
+
+    if (sender === "user") {
+        container.innerHTML += `
+            <div class="flex gap-3 justify-end">
+                <div class="bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 rounded-lg p-3 leading-relaxed max-w-[85%] font-mono text-[11px] shadow-sm">
+                    ${escapeHtml(text)}
+                </div>
+            </div>
+        `;
+    } else {
+        container.innerHTML += `
+            <div class="flex gap-3">
+                <div class="w-7 h-7 rounded-md bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 flex-shrink-0 font-mono text-[10px] font-bold">AI</div>
+                <div id="${msgId}" class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-3 text-zinc-700 dark:text-zinc-300 leading-relaxed font-mono text-[11px] max-w-[85%]">
+                    ${escapeHtml(text)}
+                </div>
+            </div>
+        `;
     }
 
-    setTimeout(() => {
-      modal.classList.add("hidden");
-      document.body.style.overflow = "";
-    }, 300);
-  }
+    container.scrollTop = container.scrollHeight;
+    return msgId;
+}
 
-  // Attach click handlers to cards / detail buttons
-  document.querySelectorAll("[data-project-id]").forEach((trigger) => {
-    trigger.addEventListener("click", function (e) {
-      // Prevent opening modal if user clicked directly on Live Demo or Source link buttons inside card
-      if (e.target.closest("a") && !e.target.closest(".modal-trigger")) return;
-      e.preventDefault();
-      const projectId = this.getAttribute("data-project-id");
-      openProjectModal(projectId);
-    });
-  });
+// Fast Local Engine for Instant Query Matching
+function getLocalAiFallback(query) {
+    const q = query.toLowerCase();
 
-  if (closeModalBtn) closeModalBtn.addEventListener("click", closeProjectModal);
-  if (modalBackdrop) modalBackdrop.addEventListener("click", closeProjectModal);
-
-  // Close on Escape key press
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
-      closeProjectModal();
-    }
-  });
-
-  // Dynamic Typing Animation for Hero Subtitle
-  const typingElement = document.getElementById("typingRole");
-  if (typingElement) {
-    const roles = [
-      "Informatics Engineering Student",
-      "Front End Developer",
-      "UI/UX & Web Performance Enthusiast"
-    ];
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
-
-    function typeEffect() {
-      const currentRole = roles[roleIndex];
-      if (isDeleting) {
-        typingElement.textContent = currentRole.substring(0, charIndex - 1);
-        charIndex--;
-        typingSpeed = 50;
-      } else {
-        typingElement.textContent = currentRole.substring(0, charIndex + 1);
-        charIndex++;
-        typingSpeed = 100;
-      }
-
-      if (!isDeleting && charIndex === currentRole.length) {
-        typingSpeed = 2000; // Pause at end
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        typingSpeed = 500; // Pause before next word
-      }
-
-      setTimeout(typeEffect, typingSpeed);
+    if (q.includes("summarize") || q.includes("who") || q.includes("profile") || q.includes("about") || q.includes("latar")) {
+        return "Arief Mochammad Akbar is a Front-End Developer and AI Engineering Practitioner. He completed a 4-year vocational program in SIJA at SMK Bina Putera Nusantara Tasikmalaya and is currently an undergraduate student in Informatics Engineering at Universitas Pamulang. He specializes in React, Vue, Tailwind CSS, and AI tool integration.";
     }
 
-    typeEffect();
-  }
+    if (q.includes("stack") || q.includes("skill") || q.includes("tech") || q.includes("bahasa") || q.includes("keahlian")) {
+        return "Arief's core technical arsenal includes:\n• Front-End: React.js, Vue.js, JavaScript (ES6+), TypeScript, Tailwind CSS, HTML5/CSS3\n• AI & ML: Python, Scikit-Learn, Pandas, LangChain, Gemini API\n• Backend & Tools: PHP/Laravel, Node.js, Socket.io, MySQL, Git, Linux CLI.";
+    }
 
-  // IntersectionObserver Scroll Reveal Animations
-  const revealElements = document.querySelectorAll(".reveal-on-scroll");
-  if ("IntersectionObserver" in window) {
-    const observerOptions = {
-      threshold: 0.12,
-      rootMargin: "0px 0px -40px 0px"
+    if (q.includes("project") || q.includes("projek") || q.includes("karya") || q.includes("portfolio")) {
+        return "Key projects built by Arief:\n1. Maison Velouré — Luxury React & Tailwind e-commerce boutique.\n2. Tech Care Platform — Real-time PC repair portal with Vue & Socket.io.\n3. Weather Dashboard — Atmospheric analytics with Vue & Chart.js.\n4. Real Estate Regression — Housing valuation ML pipeline in Python.";
+    }
+
+    if (q.includes("education") || q.includes("pendidikan") || q.includes("kuliah") || q.includes("sekolah") || q.includes("unpam")) {
+        return "Education Details:\n• Universitas Pamulang (UNPAM): S1 Teknik Informatika (2026—Present)\n• SMK Bina Putera Nusantara Tasikmalaya: SIJA (Sistem Informasi, Jaringan, dan Aplikasi — 4-year vocational curriculum, 2022—2026).";
+    }
+
+    if (q.includes("contact") || q.includes("email") || q.includes("hubungi") || q.includes("hire") || q.includes("kerja")) {
+        return "You can reach Arief directly:\n• Email: ariefakbar2006@gmail.com\n• GitHub: github.com/kaiiooo23\n• LinkedIn: linkedin.com/in/arief-akbar/\nOr submit a message via the contact form on this site!";
+    }
+    if (q.includes("thankyou") || q.includes("thanks") || q.includes("thank") || q.includes("terima kasih") || q.includes("dan terima kasih") || q.includes("makasih")) {
+        return "You are welcome to reach out!\n";
+    }
+
+    return "Arief Mochammad Akbar is an Informatics Engineering student at Universitas Pamulang with a 4-year vocational SIJA background. He builds responsive front-end applications with React, Vue, and Tailwind, and explores autonomous AI integrations.";
+}
+
+// Live Gemini API Direct Invocation
+async function callGeminiAPI(userQuery, apiKey) {
+    const systemPrompt = "You are Arief Mochammad Akbar's personal portfolio AI assistant. Answer concisely, professionally, and accurately about Arief's education at Pamulang University, SIJA vocational degree, React/Vue/Tailwind/Python skills, and projects.";
+    const cleanKey = apiKey.trim();
+
+    // Standard Gemini API endpoint
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${cleanKey}`;
+
+    const payload = {
+        contents: [
+            {
+                role: "user",
+                parts: [{ text: userQuery }]
+            }
+        ],
+        systemInstruction: {
+            parts: [{ text: systemPrompt }]
+        }
     };
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-          observer.unobserve(entry.target);
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+            console.error("Gemini API Error:", data.error);
+            return `Google API Error: ${data.error.message || "Invalid API response"}`;
         }
-      });
-    }, observerOptions);
 
-    revealElements.forEach((el) => revealObserver.observe(el));
-  } else {
-    revealElements.forEach((el) => el.classList.add("revealed"));
-  }
+        const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (candidateText) {
+            return candidateText;
+        }
 
-  // Back to Top Button
-  const backToTopBtn = document.getElementById("backToTopBtn");
-  if (backToTopBtn) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 400) {
-        backToTopBtn.classList.remove("opacity-0", "pointer-events-none", "translate-y-4");
-        backToTopBtn.classList.add("opacity-100", "pointer-events-auto", "translate-y-0");
-      } else {
-        backToTopBtn.classList.add("opacity-0", "pointer-events-none", "translate-y-4");
-        backToTopBtn.classList.remove("opacity-100", "pointer-events-auto", "translate-y-0");
-      }
-    });
+        return "Gemini did not return any text. Please try asking again.";
+    } catch (err) {
+        console.error("Fetch Error:", err);
+        throw err;
+    }
+}
 
-    backToTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
+// ==========================================
+// SETTINGS MODAL (GEMINI API KEY)
+// ==========================================
+function openSettingsModal() {
+    const modal = document.getElementById("settingsModal");
+    const input = document.getElementById("geminiApiKeyInput");
+    if (modal) modal.classList.remove("hidden");
+    if (input) input.value = localStorage.getItem("gemini_api_key") || "";
+}
 
-  // Contact Form Validation & Toast Handler
-  const contactForm = document.getElementById("contactForm");
-  const toast = document.getElementById("toastNotification");
-  const toastTitle = document.getElementById("toastTitle");
-  const toastMessage = document.getElementById("toastMessage");
-  const toastIcon = document.getElementById("toastIcon");
+function closeSettingsModal() {
+    const modal = document.getElementById("settingsModal");
+    if (modal) modal.classList.add("hidden");
+}
 
-  function showToast(title, message, isSuccess = true) {
-    if (!toast) return;
-    if (toastTitle) toastTitle.textContent = title;
-    if (toastMessage) toastMessage.textContent = message;
-    if (toastIcon) {
-      toastIcon.innerHTML = isSuccess ? '<i class="fas fa-check"></i>' : '<i class="fas fa-exclamation-triangle"></i>';
+function saveApiKey() {
+    const input = document.getElementById("geminiApiKeyInput");
+    const key = input ? input.value.trim() : "";
+    if (key) {
+        localStorage.setItem("gemini_api_key", key);
+        showToast("Gemini API key saved successfully.");
+    } else {
+        localStorage.removeItem("gemini_api_key");
+        showToast("API Key cleared. Using fast local engine.");
+    }
+    closeSettingsModal();
+}
+
+// ==========================================
+// PROJECT DETAILS MODAL
+// ==========================================
+function openProjectModal(key) {
+    const data = projectModalData[key];
+    const modal = document.getElementById("projectModal");
+    const content = document.getElementById("projectModalContent");
+    if (!data || !modal || !content) return;
+
+    let imageHtml = "";
+    if (data.image) {
+        imageHtml = `
+            <div class="rounded-xl overflow-hidden aspect-video border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 mb-6 shadow-md">
+                <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover">
+            </div>
+        `;
     }
 
-    toast.classList.remove("opacity-0", "pointer-events-none", "translate-y-4");
-    toast.classList.add("opacity-100", "pointer-events-auto", "translate-y-0");
+    let actionButtons = "";
+    if (data.demoUrl) {
+        actionButtons += `
+            <a href="${data.demoUrl}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-md bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 font-mono text-xs font-bold hover:opacity-90 transition flex items-center gap-2 shadow-sm">
+                <span>Launch Live Demo</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+        `;
+    }
+    if (data.githubUrl) {
+        actionButtons += `
+            <a href="${data.githubUrl}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-md border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 font-mono text-xs font-semibold transition flex items-center gap-2">
+                <i class="fa-brands fa-github text-sm"></i>
+                <span>Repository</span>
+            </a>
+        `;
+    }
 
-    setTimeout(() => {
-      toast.classList.add("opacity-0", "pointer-events-none", "translate-y-4");
-      toast.classList.remove("opacity-100", "pointer-events-auto", "translate-y-0");
-    }, 4000);
-  }
+    const techPills = data.tech
+        .map((t) => `<span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-mono text-xs">${t}</span>`)
+        .join("");
 
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const nameInput = document.getElementById("contactName");
-      const emailInput = document.getElementById("contactEmail");
-      const messageInput = document.getElementById("contactMessage");
+    const highlightsList = data.highlights
+        .map((h) => `<li class="flex items-start gap-2.5 text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed"><i class="fa-solid fa-check text-emerald-500 mt-0.5 text-[11px] flex-shrink-0"></i><span>${h}</span></li>`)
+        .join("");
 
-      const nameError = document.getElementById("nameError");
-      const emailError = document.getElementById("emailError");
-      const messageError = document.getElementById("messageError");
+    content.innerHTML = `
+        ${imageHtml}
+        <div class="space-y-4">
+            <div>
+                <span class="font-mono text-xs text-emerald-600 dark:text-emerald-400 uppercase tracking-wider font-semibold">${data.category}</span>
+                <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mt-1">${data.title}</h3>
+                <p class="text-xs sm:text-sm text-zinc-500 font-mono mt-0.5">${data.subtitle}</p>
+            </div>
 
-      let isValid = true;
+            <div class="space-y-2 pt-2">
+                <h4 class="font-mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">Overview</h4>
+                <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">${data.overview}</p>
+            </div>
 
-      if (!nameInput || !nameInput.value.trim()) {
-        if (nameError) nameError.classList.remove("hidden");
-        isValid = false;
-      } else {
-        if (nameError) nameError.classList.add("hidden");
-      }
+            <div class="space-y-2 pt-2">
+                <h4 class="font-mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">Engineering Highlights</h4>
+                <ul class="space-y-2">
+                    ${highlightsList}
+                </ul>
+            </div>
 
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailInput || !emailRegex.test(emailInput.value.trim())) {
-        if (emailError) emailError.classList.remove("hidden");
-        isValid = false;
-      } else {
-        if (emailError) emailError.classList.add("hidden");
-      }
+            <div class="space-y-2 pt-2">
+                <h4 class="font-mono text-xs text-zinc-400 uppercase tracking-widest font-semibold">Technology Stack</h4>
+                <div class="flex flex-wrap gap-1.5">
+                    ${techPills}
+                </div>
+            </div>
 
-      if (!messageInput || !messageInput.value.trim()) {
-        if (messageError) messageError.classList.remove("hidden");
-        isValid = false;
-      } else {
-        if (messageError) messageError.classList.add("hidden");
-      }
+            <div class="pt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-2.5">
+                    ${actionButtons}
+                </div>
+                <button onclick="closeProjectModal()" class="px-4 py-2 border border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 rounded-md font-mono text-xs transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    `;
 
-      if (isValid) {
-        const submitBtn = document.getElementById("submitContactBtn");
-        const originalBtnHtml = submitBtn ? submitBtn.innerHTML : "";
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+}
 
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin text-xs"></i> <span>Sending...</span>';
-        }
+function closeProjectModal() {
+    const modal = document.getElementById("projectModal");
+    if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+    }
+}
 
-        fetch("https://formsubmit.co/ajax/ariefakbar2006@gmail.com", {
-          method: "POST",
-          headers: {
+// ==========================================
+// CONTACT FORM SUBMISSION (FormSubmit AJAX)
+// ==========================================
+function handleContactSubmit(e) {
+    e.preventDefault();
+    const nameInput = document.getElementById("senderName");
+    const emailInput = document.getElementById("senderEmail");
+    const messageInput = document.getElementById("senderMessage");
+    const submitBtn = document.getElementById("contactSubmitBtn");
+
+    if (!nameInput || !emailInput || !messageInput) return;
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!name || !email || !message) {
+        showToast("Please fill in all fields.", false);
+        return;
+    }
+
+    const originalBtnHtml = submitBtn ? submitBtn.innerHTML : "";
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs"></i> <span>Sending message...</span>';
+    }
+
+    fetch("https://formsubmit.co/ajax/ariefakbar2006@gmail.com", {
+        method: "POST",
+        headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
-          },
-          body: JSON.stringify({
-            name: nameInput.value.trim(),
-            email: emailInput.value.trim(),
-            message: messageInput.value.trim(),
-            _subject: `New Portfolio Contact Message from ${nameInput.value.trim()}`
-          })
+        },
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message,
+            _subject: `New Portfolio Message from ${name}`
         })
-          .then((response) => response.json())
-          .then((data) => {
-            showToast("Email Sent!", "Your message has been sent directly to ariefakbar2006@gmail.com!");
-            contactForm.reset();
-          })
-          .catch((err) => {
-            showToast("Error Sending Email", "Unable to send message via form. Please try emailing directly.", false);
-          })
-          .finally(() => {
+    })
+        .then((res) => res.json())
+        .then(() => {
+            showToast("Message sent successfully! Arief will reply soon.");
+            document.getElementById("contactForm").reset();
+        })
+        .catch(() => {
+            showToast("Failed to send form. Please email directly to ariefakbar2006@gmail.com", false);
+        })
+        .finally(() => {
             if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = originalBtnHtml;
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHtml;
             }
-          });
-      } else {
-        showToast("Validation Error", "Please fill in all required fields correctly.", false);
-      }
-    });
-  }
+        });
+}
 
-  // Dynamic current year in footer
-  const currentYearSpan = document.getElementById("currentYear");
-  if (currentYearSpan) {
-    currentYearSpan.textContent = new Date().getFullYear();
-  }
-});
+// ==========================================
+// TOAST NOTIFICATION POPUP
+// ==========================================
+function showToast(msg, isSuccess = true) {
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+    const toastIcon = document.getElementById("toastIcon");
+
+    if (!toast || !toastMsg) return;
+
+    toastMsg.innerText = msg;
+    if (toastIcon) {
+        toastIcon.className = isSuccess ? "fa-solid fa-circle-check text-emerald-500" : "fa-solid fa-triangle-exclamation text-amber-500";
+    }
+
+    toast.classList.remove("-translate-y-10", "opacity-0", "pointer-events-none");
+    toast.classList.add("translate-y-0", "opacity-100");
+
+    setTimeout(() => {
+        toast.classList.remove("translate-y-0", "opacity-100");
+        toast.classList.add("-translate-y-10", "opacity-0", "pointer-events-none");
+    }, 3800);
+}
+
+function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, function (m) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[m];
+    });
+}
